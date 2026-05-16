@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Roadmap Developer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#000;
+  --bg1:#0a0a0a;
+  --bg2:#111;
+  --bg3:#161618;
+  --bdr:rgba(255,255,255,0.07);
+  --bdr2:rgba(255,255,255,0.04);
+  --t1:#F4F4F5;
+  --t2:#A1A1AA;
+  --t3:#52525B;
+  --t4:#3f3f46;
+  --red:#F87171;--rbg:rgba(248,113,113,0.08);--rbd:rgba(248,113,113,0.18);
+  --blue:#60A5FA;--bbg:rgba(96,165,250,0.08);--bbd:rgba(96,165,250,0.18);
+  --green:#4ADE80;--gbg:rgba(74,222,128,0.08);--gbd:rgba(74,222,128,0.18);
+  --purple:#A78BFA;--pbg:rgba(167,139,250,0.08);--pbd:rgba(167,139,250,0.18);
+  --amber:#FBBF24;--abg:rgba(251,191,36,0.08);--abd:rgba(251,191,36,0.18);
+  --cyan:#22D3EE;--cbg:rgba(34,211,238,0.08);--cbd:rgba(34,211,238,0.18);
+  --orange:#FB923C;--obg:rgba(251,146,60,0.08);--obd:rgba(251,146,60,0.18);
+  --f:'Geist',sans-serif;--m:'Geist Mono',monospace;
+}
+body{background:var(--bg);color:var(--t1);font-family:var(--f);min-height:100vh}
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+
+/* ── HEADER ── */
+.hdr{padding:1.75rem 1.5rem 0;max-width:960px;margin:0 auto}
+.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.5rem}
+.hdr-title{font-size:22px;font-weight:700;letter-spacing:-.5px}
+.hdr-sub{font-size:11px;color:var(--t3);font-family:var(--m);margin-bottom:1rem}
+.gbar{background:rgba(255,255,255,0.04);border-radius:20px;height:4px;overflow:hidden;margin-bottom:1.5rem;position:relative}
+.gbar-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--red),var(--blue),var(--green),var(--purple),var(--cyan));transition:width .6s ease;width:0%}
+.gbar-txt{position:absolute;right:0;top:-18px;font-size:10px;font-family:var(--m);color:var(--t3)}
+
+/* ── TOPNAV ── */
+.topnav{display:flex;gap:4px;flex-wrap:wrap;padding:0 1.5rem;max-width:960px;margin:0 auto .875rem;border-bottom:.5px solid var(--bdr);padding-bottom:.75rem}
+.tnb{padding:5px 12px;border-radius:20px;border:.5px solid transparent;font-size:11px;font-family:var(--m);cursor:pointer;background:transparent;color:var(--t3);transition:all .15s;white-space:nowrap}
+.tnb:hover{background:rgba(255,255,255,0.04);color:var(--t2)}
+.xr{background:var(--rbg);border-color:var(--rbd);color:var(--red)}
+.xb{background:var(--bbg);border-color:var(--bbd);color:var(--blue)}
+.xg{background:var(--gbg);border-color:var(--gbd);color:var(--green)}
+.xa{background:var(--abg);border-color:var(--abd);color:var(--amber)}
+.xp{background:var(--pbg);border-color:var(--pbd);color:var(--purple)}
+.xc{background:var(--cbg);border-color:var(--cbd);color:var(--cyan)}
+.xo{background:var(--obg);border-color:var(--obd);color:var(--orange)}
+
+/* ── PAGE ── */
+.pg{display:none;padding:0 1.5rem 3rem;max-width:960px;margin:0 auto}
+.pg.on{display:block}
+.ph{margin-bottom:1.25rem}
+.pbadge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:500;margin-bottom:.625rem;font-family:var(--m)}
+.ptitle{font-size:18px;font-weight:700;margin-bottom:2px;letter-spacing:-.3px}
+.pmeta{font-size:11px;font-family:var(--m);color:var(--t3)}
+
+/* ── SECTION LABEL ── */
+.lbl{font-size:9px;font-family:var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.5rem;padding-bottom:.375rem;border-bottom:.5px solid var(--bdr);margin-top:1.25rem}
+
+/* ── CARD ── */
+.card{background:var(--bg1);border:.5px solid var(--bdr);border-radius:10px;padding:.875rem 1rem;margin-bottom:.625rem}
+.ctitle{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:6px}
+.cbody{font-size:12px;color:var(--t2);line-height:1.75}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.625rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.625rem}
+
+/* ── CHECKLIST ── */
+.ci{display:flex;align-items:flex-start;gap:9px;padding:8px 10px;border-radius:7px;cursor:pointer;transition:background .1s;user-select:none}
+.ci:hover{background:rgba(255,255,255,0.02)}
+.ci.ckd .cl{color:var(--t3);text-decoration:line-through}
+.cbox{width:15px;height:15px;border-radius:3px;border:.5px solid rgba(255,255,255,0.14);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:8px;transition:all .15s}
+.dr .cbox.ck{background:var(--rbg);border-color:var(--red);color:var(--red)}
+.db .cbox.ck{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
+.dg .cbox.ck{background:var(--gbg);border-color:var(--green);color:var(--green)}
+.dp .cbox.ck{background:var(--pbg);border-color:var(--purple);color:var(--purple)}
+.dc .cbox.ck{background:var(--cbg);border-color:var(--cyan);color:var(--cyan)}
+.da .cbox.ck{background:var(--abg);border-color:var(--amber);color:var(--amber)}
+.do .cbox.ck{background:var(--obg);border-color:var(--orange);color:var(--orange)}
+.cl{font-size:12px;color:var(--t1);line-height:1.5}
+.cs{font-size:10px;font-family:var(--m);color:var(--t3);margin-top:2px}
+
+/* ── ACCORDION ── */
+.acc{background:var(--bg1);border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;margin-bottom:.5rem}
+.ah{padding:.75rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .1s}
+.ah:hover{background:rgba(255,255,255,0.02)}
+.at{font-size:12px;font-weight:500;color:var(--t1)}
+.ab{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s}
+.ab.on{max-height:6000px;padding:.125rem 1rem 1rem}
+.ad{font-size:12px;color:var(--t2);line-height:1.75;margin:.5rem 0}
+.chv{font-size:9px;color:var(--t3);transition:transform .3s}
+.chv.on{transform:rotate(180deg)}
+
+/* ── CODE ── */
+.cb{background:#050505;border:.5px solid rgba(255,255,255,0.05);border-radius:7px;margin:.625rem 0;overflow:hidden}
+.ct{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-bottom:.5px solid rgba(255,255,255,0.05)}
+.cl2{font-size:9px;font-family:var(--m);color:var(--t3)}
+.cc{font-size:9px;font-family:var(--m);color:var(--t3);cursor:pointer;padding:2px 7px;border-radius:3px;border:.5px solid var(--bdr);background:transparent;transition:all .15s}
+.cc:hover{color:var(--t2);border-color:rgba(255,255,255,0.12)}
+pre{padding:.75rem .875rem;font-family:var(--m);font-size:11.5px;line-height:1.85;color:#e2e8f0;overflow-x:auto;white-space:pre}
+.kw{color:#93c5fd}.fn{color:#86efac}.str{color:#fca5a5}.cm{color:#374151;font-style:italic}.num{color:#fbbf24}.cl_{color:#c4b5fd}
+
+/* ── FLOW DIAGRAM ── */
+.fbox{background:var(--bg2);border:.5px solid var(--bdr);border-radius:8px;padding:8px 12px;font-size:11px;text-align:center}
+.fcol{display:flex;flex-direction:column;gap:0;align-items:stretch}
+.farr{text-align:center;color:var(--t3);padding:3px 0;font-size:13px}
+
+/* ── KERNEL ARCH ── */
+.kw2{border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;font-size:11px;margin:.625rem 0}
+.kt{border-bottom:.5px solid var(--bdr2);padding:.625rem 1rem}
+.kt:last-child{border-bottom:none}
+.ktitle{font-size:9px;font-family:var(--m);color:var(--t3);margin-bottom:5px;letter-spacing:.06em;text-transform:uppercase}
+.ki{display:flex;flex-wrap:wrap;gap:5px}
+.kitem{border-radius:5px;padding:3px 9px;font-size:10px;font-weight:500;font-family:var(--m)}
+
+/* ── PROJ CARD ── */
+.proj{background:rgba(255,255,255,0.015);border:.5px solid var(--bdr2);border-radius:9px;padding:.75rem .875rem;margin-top:.625rem}
+.ptag{font-size:9px;font-family:var(--m);margin-bottom:4px}
+.pname{font-size:12px;font-weight:600;margin-bottom:3px}
+.pdesc{font-size:11px;color:var(--t2);line-height:1.65}
+
+/* ── STATUS ── */
+.stsgrid{display:flex;gap:8px;flex-wrap:wrap;margin:.625rem 0}
+.stsb{border-radius:7px;padding:7px 13px;font-size:11px;font-weight:500;cursor:pointer;transition:transform .15s;border:.5px solid transparent}
+.stsb:hover{transform:scale(1.04)}
+.stsinfo{background:rgba(255,255,255,0.02);border:.5px solid var(--bdr2);border-radius:7px;padding:.625rem .875rem;font-size:12px;color:var(--t2);min-height:44px;margin-top:.5rem;line-height:1.65}
+
+/* ── IPC ── */
+.ipcg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:.625rem 0}
+.ipcc{background:var(--bg1);border:.5px solid var(--bdr);border-radius:8px;padding:.75rem}
+.spdrow{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.spdbar{height:16px;border-radius:3px;font-size:9px;color:#fff;padding:0 7px;line-height:16px;font-family:var(--m)}
+
+/* ── DOCKER DIAG ── */
+.dockerd{border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;margin:.75rem 0;background:var(--bg1)}
+.dlayer{padding:.75rem 1rem;border-bottom:.5px solid var(--bdr2)}
+.dlayer:last-child{border-bottom:none}
+.dcnts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.dcnt{border-radius:7px;padding:.625rem;border:.5px solid}
+.dcitem{font-size:10px;border-radius:4px;padding:3px 7px;margin-bottom:3px;font-family:var(--m);text-align:center}
+
+/* ── NAVBOT ── */
+.navbot{display:flex;justify-content:space-between;margin-top:2rem;padding-top:1rem;border-top:.5px solid var(--bdr)}
+.nvbtn{padding:7px 15px;border-radius:7px;font-size:11px;font-family:var(--m);cursor:pointer;border:.5px solid var(--bdr);background:var(--bg1);color:var(--t2);transition:all .15s}
+.nvbtn:hover{border-color:rgba(255,255,255,0.14);color:var(--t1)}
+.nvbtn:disabled{opacity:.2;cursor:not-allowed}
+
+/* ── SUB-TABS ── */
+.stabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:.625rem;border-bottom:.5px solid var(--bdr)}
+.stab{display:none}.stab.on{display:block}
+
+/* ── OSTAB ── */
+.ostab{display:none}.ostab.on{display:block}
+
+/* ── SIM ── */
+.simbar{display:flex;gap:3px;height:26px;border-radius:6px;overflow:hidden;border:.5px solid var(--bdr)}
+.simleg{display:flex;gap:10px;margin-top:.5rem;font-size:10px;color:var(--t2);font-family:var(--m)}
+
+/* ── MEMBAR ── */
+.membar{display:flex;flex-direction:column;border:.5px solid var(--bdr);border-radius:8px;overflow:hidden;font-size:11px;text-align:center}
+.memseg{padding:9px 8px;font-weight:500;border-bottom:.5px solid var(--bdr2)}
+.memseg:last-child{border-bottom:none}
+
+/* ── TREE PAGE ── */
+.tree-wrap{padding:1.5rem 0}
+.tree-section{margin-bottom:2rem}
+.tree-section-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.tree-node{position:relative;margin-bottom:6px}
+.tree-row{display:flex;align-items:flex-start;gap:0}
+.tree-lines{display:flex;flex-direction:column;flex-shrink:0;width:24px}
+.tree-vert{width:1px;background:var(--bdr);margin-left:11px;flex:1}
+.tree-horiz{display:flex;align-items:center;height:24px;flex-shrink:0}
+.tree-horiz::before{content:'';display:block;width:11px;height:1px;background:var(--bdr)}
+.tree-horiz::after{content:'';display:block;width:12px;height:1px;background:var(--bdr)}
+.tree-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-right:4px;margin-top:9px}
+.tree-content{flex:1;padding:.5rem .75rem;border-radius:8px;border:.5px solid var(--bdr);background:var(--bg1);margin-bottom:4px}
+.tree-title{font-size:12px;font-weight:500;color:var(--t1)}
+.tree-desc{font-size:11px;color:var(--t3);margin-top:2px;font-family:var(--m)}
+.tree-children{margin-left:20px;padding-left:4px;border-left:.5px solid var(--bdr)}
+.tree-badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:4px;font-family:var(--m);font-weight:500;margin-left:6px;vertical-align:middle}
+
+/* ── ROADMAP TREE VISUAL ── */
+.rtree{width:100%;overflow-x:auto}
+.rtree-inner{min-width:660px;padding:1rem 0}
+.rnode{display:flex;flex-direction:column;align-items:center}
+.rnode-box{border-radius:10px;padding:.75rem 1.25rem;text-align:center;border:.5px solid;cursor:default;transition:transform .15s}
+.rnode-box:hover{transform:translateY(-2px)}
+.rnode-title{font-size:12px;font-weight:600}
+.rnode-meta{font-size:10px;margin-top:2px;opacity:.7;font-family:var(--m)}
+.rconn-v{width:1px;height:28px;margin:0 auto}
+.rconn-h{display:flex;align-items:flex-start;position:relative}
+.rconn-h::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:var(--bdr)}
+.rlevel{display:flex;justify-content:center;gap:16px;width:100%}
+.rlevel-item{display:flex;flex-direction:column;align-items:center;flex:1}
+.rconn-down{width:1px;height:24px;margin:0 auto}
+
+/* ── INFO BOX ── */
+.infobox{background:var(--bbg);border:.5px solid var(--bbd);border-radius:7px;padding:.625rem .875rem;font-size:11px;color:var(--blue);line-height:1.65;margin:.5rem 0}
+.warnbox{background:var(--abg);border:.5px solid var(--abd);border-radius:7px;padding:.625rem .875rem;font-size:11px;color:var(--amber);line-height:1.65;margin:.5rem 0}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-title">Master Roadmap Developer</div>
+      <div class="hdr-sub">// os · kernel · terminal · backend · docker · deploy · startup · backend-deep-dive</div>
+    </div>
+  </div>
+  <div class="gbar">
+    <div class="gbar-fill" id="gbar"></div>
+    <div class="gbar-txt" id="gpct">0%</div>
+  </div>
+</div>
+
+<div class="topnav">
+  <button class="tnb xr" onclick="go(0,this)">🗺 Pohon Roadmap</button>
+  <button class="tnb" onclick="go(1,this)">🔴 OS & Kernel</button>
+  <button class="tnb" onclick="go(2,this)">🔵 Fase 1 — Terminal</button>
+  <button class="tnb" onclick="go(3,this)">🟢 Fase 2 — Backend</button>
+  <button class="tnb" onclick="go(4,this)">🟡 Fase 3 — Docker</button>
+  <button class="tnb" onclick="go(5,this)">🟣 Fase 4 — Deploy</button>
+  <button class="tnb" onclick="go(6,this)">🩵 Fase 5 — Startup</button>
+  <button class="tnb" onclick="go(7,this)">🟠 Backend Deep Dive</button>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 0 — POHON ROADMAP
+════════════════════════════════════ -->
+<div class="pg on" id="pg0">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--rbg);border:.5px solid var(--rbd);color:var(--red)">Mulai Di Sini</div>
+    <div class="ptitle">Pohon Roadmap Developer</div>
+    <div class="pmeta">// gambaran besar — dari nol sampai punya produk nyata</div>
+  </div>
+
+  <!-- DIAGRAM POHON VISUAL -->
+  <div class="card">
+    <div class="ctitle">Diagram Alur Belajar</div>
+    <div class="cbody" style="margin-bottom:.875rem">Baca dari atas ke bawah. Setiap fase mengunci fase berikutnya — jangan loncat.</div>
+    <div class="rtree"><div class="rtree-inner">
+
+      <!-- ROOT -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--rbg);border-color:var(--rbd);color:var(--red);min-width:200px">
+            <div class="rnode-title">🎯 Tujuan Akhir</div>
+            <div class="rnode-meta">Backend Dev + Home Server + Startup</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FONDASI -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue);min-width:200px">
+            <div class="rnode-title">📚 Fondasi Wajib</div>
+            <div class="rnode-meta">OS & Kernel — paham cara komputer bekerja</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FASE 1 -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--gbg);border-color:var(--gbd);color:var(--green);min-width:200px">
+            <div class="rnode-title">1️⃣ Fase 1 — Terminal & Linux</div>
+            <div class="rnode-meta">2–3 minggu · MULAI DARI SINI</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue);min-width:200px">
+            <div class="rnode-title">2️⃣ Fase 2 — Backend & API</div>
+            <div class="rnode-meta">6–8 minggu · Python + FastAPI + DB</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--abg);border-color:var(--abd);color:var(--amber);min-width:200px">
+            <div class="rnode-title">3️⃣ Fase 3 — Docker</div>
+            <div class="rnode-meta">1–2 minggu · containerize segalanya</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FASE 4 -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--pbg);border-color:var(--pbd);color:var(--purple);min-width:200px">
+            <div class="rnode-title">4️⃣ Fase 4 — Deploy & Server</div>
+            <div class="rnode-meta">3–4 minggu · VPS + Nginx + HTTPS + CI/CD</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- FASE 5 -->
+      <div style="display:flex;justify-content:center;margin-bottom:0">
+        <div class="rnode">
+          <div class="rnode-box" style="background:var(--cbg);border-color:var(--cbd);color:var(--cyan);min-width:200px">
+            <div class="rnode-title">5️⃣ Fase 5 — Startup & Product</div>
+            <div class="rnode-meta">ongoing · MVP + pengguna nyata</div>
+          </div>
+          <div class="rconn-v" style="background:var(--bdr)"></div>
+        </div>
+      </div>
+
+      <!-- BRANCHING -->
+      <div style="display:flex;justify-content:center;position:relative;margin-bottom:0">
+        <div style="position:absolute;top:0;left:20%;right:20%;height:1px;background:var(--bdr)"></div>
+        <div style="display:flex;gap:20px;width:100%;justify-content:center">
+          <div class="rnode" style="flex:1;max-width:200px">
+            <div class="rconn-v" style="background:var(--bdr)"></div>
+            <div class="rnode-box" style="background:var(--obg);border-color:var(--obd);color:var(--orange)">
+              <div class="rnode-title">🔧 Backend Deep Dive</div>
+              <div class="rnode-meta">APIs · DB · Security · CDN</div>
+            </div>
+          </div>
+          <div class="rnode" style="flex:1;max-width:200px">
+            <div class="rconn-v" style="background:var(--bdr)"></div>
+            <div class="rnode-box" style="background:var(--rbg);border-color:var(--rbd);color:var(--red)">
+              <div class="rnode-title">⚡ Iterasi Startup</div>
+              <div class="rnode-meta">feedback · fitur · growth</div>
+            </div>
+          </div>
+          <div class="rnode" style="flex:1;max-width:200px">
+            <div class="rconn-v" style="background:var(--bdr)"></div>
+            <div class="rnode-box" style="background:var(--gbg);border-color:var(--gbd);color:var(--green)">
+              <div class="rnode-title">🏗 DevOps Lanjut</div>
+              <div class="rnode-meta">K8s · monitoring · scaling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- DETAIL POHON LENGKAP -->
+  <div class="lbl">Detail Setiap Cabang</div>
+
+  <!-- CABANG OS -->
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:.75rem">
+      <div style="width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0"></div>
+      <div class="ctitle" style="margin:0">Fondasi: OS & Kernel</div>
+      <div style="font-size:10px;font-family:var(--m);color:var(--t3)">belajar paralel saat mulai coding</div>
+    </div>
+    <div style="margin-left:18px;border-left:.5px solid var(--bdr);padding-left:12px">
+      <div style="margin-bottom:6px"><div style="font-size:12px;font-weight:500;color:var(--t1)">Definisi OS & Cara Kerja</div><div style="font-size:11px;color:var(--t3);font-family:var(--m)">kernel · system call · user space vs kernel space</div></div>
+      <div style="margin-bottom:6px"><div style="font-size:12px;font-weight:500;color:var(--t1)">Manajemen Proses & Memori</div><div style="font-size:11px;color:var(--t3);font-family:var(--m)">scheduling · PCB · virtual memory · stack/heap</div></div>
+      <div style="margin-bottom:6px"><div style="font-size:12px;font-weight:500;color:var(--t1)">Filesystem & IPC</div><div style="font-size:11px;color:var(--t3);font-family:var(--m)">inode · pipe · socket · shared memory</div></div>
+      <div style="margin-bottom:0"><div style="font-size:12px;font-weight:500;color:var(--t1)">Syscall (C Low Level)</div><div style="font-size:11px;color:var(--t3);font-family:var(--m)">read() · write() · fork() · mmap() · ring 0 vs ring 3</div></div>
+    </div>
+  </div>
+
+  <!-- CABANG FASE 1-5 -->
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <div class="card" style="border-color:var(--gbd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:.625rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--green)"></div>
+        <div class="ctitle" style="margin:0;color:var(--green)">Fase 1 — Terminal & Linux <span style="font-size:10px;color:var(--t3);font-family:var(--m);font-weight:400">2–3 minggu</span></div>
+      </div>
+      <div style="margin-left:18px;border-left:.5px solid var(--gbd);padding-left:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--t2)">📁 Navigasi terminal — cd, ls, find, grep, awk, sed</div>
+        <div style="font-size:11px;color:var(--t2)">🔐 File permission — chmod, chown, rwx</div>
+        <div style="font-size:11px;color:var(--t2)">📦 Package manager — apt, pip, npm</div>
+        <div style="font-size:11px;color:var(--t2)">🌐 Environment variable & PATH</div>
+        <div style="font-size:11px;color:var(--t2)">🔀 Pipe & redirect — |, >, >>, 2>&1</div>
+        <div style="font-size:11px;color:var(--t2)">📌 Git setiap hari — add, commit, push, branch</div>
+        <div style="font-size:11px;color:var(--t2)">🔑 SSH — keygen, authorized_keys, scp</div>
+        <div style="font-size:11px;color:var(--green);font-family:var(--m)">🎯 Project: Dotfiles Setup di GitHub</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:var(--bbd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:.625rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--blue)"></div>
+        <div class="ctitle" style="margin:0;color:var(--blue)">Fase 2 — Backend & API <span style="font-size:10px;color:var(--t3);font-family:var(--m);font-weight:400">6–8 minggu</span></div>
+      </div>
+      <div style="margin-left:18px;border-left:.5px solid var(--bbd);padding-left:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--t2)">🐍 Python intermediate — venv, pip, class, error handling</div>
+        <div style="font-size:11px;color:var(--t2)">🌐 HTTP & REST — GET/POST/PUT/DELETE, status code, JSON</div>
+        <div style="font-size:11px;color:var(--t2)">⚡ FastAPI — route, validation, docs otomatis</div>
+        <div style="font-size:11px;color:var(--t2)">🔑 Auth — JWT, bcrypt, login/register</div>
+        <div style="font-size:11px;color:var(--t2)">🗄 SQL + SQLModel — PostgreSQL, CRUD, JOIN</div>
+        <div style="font-size:11px;color:var(--t2)">🐳 Docker dasar — Dockerfile, docker-compose</div>
+        <div style="font-size:11px;color:var(--blue);font-family:var(--m)">🎯 Project: REST API Expense Tracker</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:var(--abd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:.625rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--amber)"></div>
+        <div class="ctitle" style="margin:0;color:var(--amber)">Fase 3 — Docker <span style="font-size:10px;color:var(--t3);font-family:var(--m);font-weight:400">1–2 minggu</span></div>
+      </div>
+      <div style="margin-left:18px;border-left:.5px solid var(--abd);padding-left:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--t2)">📦 Image vs container — layer, build, run</div>
+        <div style="font-size:11px;color:var(--t2)">📝 Dockerfile — FROM, COPY, RUN, CMD</div>
+        <div style="font-size:11px;color:var(--t2)">🔧 docker-compose — multi service, volume, network</div>
+        <div style="font-size:11px;color:var(--t2)">🔗 Docker networking — nama service sebagai hostname</div>
+        <div style="font-size:11px;color:var(--t2)">🔬 Kernel features — namespaces, cgroups, overlay2</div>
+        <div style="font-size:11px;color:var(--amber);font-family:var(--m)">🎯 Project: Containerize API + DB + Redis</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:var(--pbd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:.625rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--purple)"></div>
+        <div class="ctitle" style="margin:0;color:var(--purple)">Fase 4 — Deploy & Home Server <span style="font-size:10px;color:var(--t3);font-family:var(--m);font-weight:400">3–4 minggu</span></div>
+      </div>
+      <div style="margin-left:18px;border-left:.5px solid var(--pbd);padding-left:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--t2)">🖥 VPS setup — SSH, firewall, user non-root</div>
+        <div style="font-size:11px;color:var(--t2)">🔒 Server hardening — ufw, SSH key only</div>
+        <div style="font-size:11px;color:var(--t2)">⚙️ Nginx reverse proxy — proxy_pass, SSL</div>
+        <div style="font-size:11px;color:var(--t2)">🌐 Domain + HTTPS — DNS, Let's Encrypt</div>
+        <div style="font-size:11px;color:var(--t2)">🚀 GitHub Actions CI/CD — push → auto deploy</div>
+        <div style="font-size:11px;color:var(--purple);font-family:var(--m)">🎯 Project: api.namakamu.com live 24/7</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:var(--cbd)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:.625rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--cyan)"></div>
+        <div class="ctitle" style="margin:0;color:var(--cyan)">Fase 5 — Startup & Product <span style="font-size:10px;color:var(--t3);font-family:var(--m);font-weight:400">ongoing</span></div>
+      </div>
+      <div style="margin-left:18px;border-left:.5px solid var(--cbd);padding-left:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--t2)">💡 Identifikasi masalah nyata — bukan dari tech stack</div>
+        <div style="font-size:11px;color:var(--t2)">🗣 Validasi ke 10 orang sebelum coding</div>
+        <div style="font-size:11px;color:var(--t2)">⚡ MVP dalam 2–4 minggu</div>
+        <div style="font-size:11px;color:var(--t2)">🖥 Frontend minimal — HTML/Tailwind atau Next.js</div>
+        <div style="font-size:11px;color:var(--t2)">👥 5 pengguna pertama → feedback → iterate</div>
+        <div style="font-size:11px;color:var(--cyan);font-family:var(--m)">🎯 Project: Produk yang dipakai orang lain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS TREE -->
+  <div class="lbl">Skills Yang Dibangun Per Fase</div>
+  <div class="card">
+    <div class="kw2">
+      <div class="kt"><div class="ktitle">OS & Kernel (Teori)</div><div class="ki"><span class="kitem" style="background:var(--rbg);color:var(--red)">process</span><span class="kitem" style="background:var(--rbg);color:var(--red)">memory</span><span class="kitem" style="background:var(--rbg);color:var(--red)">filesystem</span><span class="kitem" style="background:var(--rbg);color:var(--red)">syscall</span><span class="kitem" style="background:var(--rbg);color:var(--red)">kernel</span><span class="kitem" style="background:var(--rbg);color:var(--red)">IPC</span></div></div>
+      <div class="kt"><div class="ktitle">Fase 1 — Terminal</div><div class="ki"><span class="kitem" style="background:var(--gbg);color:var(--green)">bash</span><span class="kitem" style="background:var(--gbg);color:var(--green)">git</span><span class="kitem" style="background:var(--gbg);color:var(--green)">ssh</span><span class="kitem" style="background:var(--gbg);color:var(--green)">chmod</span><span class="kitem" style="background:var(--gbg);color:var(--green)">env var</span><span class="kitem" style="background:var(--gbg);color:var(--green)">pipe</span><span class="kitem" style="background:var(--gbg);color:var(--green)">grep/awk</span></div></div>
+      <div class="kt"><div class="ktitle">Fase 2 — Backend</div><div class="ki"><span class="kitem" style="background:var(--bbg);color:var(--blue)">Python</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">HTTP</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">FastAPI</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">JWT</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">SQL</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">PostgreSQL</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">ORM</span></div></div>
+      <div class="kt"><div class="ktitle">Fase 3 — Docker</div><div class="ki"><span class="kitem" style="background:var(--abg);color:var(--amber)">Docker</span><span class="kitem" style="background:var(--abg);color:var(--amber)">Dockerfile</span><span class="kitem" style="background:var(--abg);color:var(--amber)">compose</span><span class="kitem" style="background:var(--abg);color:var(--amber)">network</span><span class="kitem" style="background:var(--abg);color:var(--amber)">volume</span><span class="kitem" style="background:var(--abg);color:var(--amber)">Redis</span></div></div>
+      <div class="kt"><div class="ktitle">Fase 4 — Deploy</div><div class="ki"><span class="kitem" style="background:var(--pbg);color:var(--purple)">VPS</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">Nginx</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">SSL/TLS</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">DNS</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">CI/CD</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">systemd</span></div></div>
+      <div class="kt"><div class="ktitle">Fase 5 — Startup</div><div class="ki"><span class="kitem" style="background:var(--cbg);color:var(--cyan)">product thinking</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">MVP</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">user research</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">iteration</span></div></div>
+    </div>
+  </div>
+
+  <div class="warnbox">⚠️ <strong>Aturan paling penting:</strong> Selesaikan fase secara berurutan. Kamu boleh baca materi fase berikutnya, tapi jangan mulai project-nya sebelum fase sebelumnya selesai. Fokus = kunci.</div>
+
+  <div class="navbot">
+    <button class="nvbtn" disabled>← Awal</button>
+    <button class="nvbtn" onclick="go(1,document.querySelectorAll('.tnb')[1])">OS & Kernel →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 1 — OS & KERNEL
+════════════════════════════════════ -->
+<div class="pg" id="pg1">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--rbg);border:.5px solid var(--rbd);color:var(--red)">Fondasi · Konsep Mendalam</div>
+    <div class="ptitle">Sistem Operasi & Kernel</div>
+    <div class="pmeta">// definisi · kernel · proses · memori · filesystem · ipc · syscall</div>
+  </div>
+
+  <div class="stabs">
+    <button class="tnb xr" onclick="os(0,this)" id="ost0">1. Definisi OS</button>
+    <button class="tnb" onclick="os(1,this)" id="ost1">2. Kernel</button>
+    <button class="tnb" onclick="os(2,this)" id="ost2">3. Hardware & Driver</button>
+    <button class="tnb" onclick="os(3,this)" id="ost3">4. Multitasking</button>
+    <button class="tnb" onclick="os(4,this)" id="ost4">5. Memori</button>
+    <button class="tnb" onclick="os(5,this)" id="ost5">6. Status Proses</button>
+    <button class="tnb" onclick="os(6,this)" id="ost6">7. Filesystem</button>
+    <button class="tnb" onclick="os(7,this)" id="ost7">8. IPC</button>
+    <button class="tnb" onclick="os(8,this)" id="ost8">9. Syscall C</button>
+  </div>
+
+  <!-- OS 0 -->
+  <div class="ostab on" id="os0">
+    <div class="lbl">Definisi & Cara Kerja</div>
+    <div class="card">
+      <div class="ctitle">Apa itu Sistem Operasi?</div>
+      <div class="cbody">OS adalah program <strong>pertama yang berjalan</strong> saat komputer dinyalakan (setelah BIOS/UEFI). Tugasnya: mengelola semua hardware dan menyediakan layanan bagi program lain.<br><br>
+      <span style="font-size:10px;display:inline-block;padding:2px 7px;border-radius:4px;background:var(--bbg);color:var(--blue);font-family:var(--m);margin:2px">Windows</span>
+      <span style="font-size:10px;display:inline-block;padding:2px 7px;border-radius:4px;background:var(--bbg);color:var(--blue);font-family:var(--m);margin:2px">Linux</span>
+      <span style="font-size:10px;display:inline-block;padding:2px 7px;border-radius:4px;background:var(--bbg);color:var(--blue);font-family:var(--m);margin:2px">macOS</span>
+      <span style="font-size:10px;display:inline-block;padding:2px 7px;border-radius:4px;background:var(--bbg);color:var(--blue);font-family:var(--m);margin:2px">Android</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ctitle">Lapisan Abstraksi Lengkap</div>
+      <div class="fcol">
+        <div class="fbox" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue)">Aplikasi User (Chrome, VS Code, Python app...)</div>
+        <div class="farr">↕ System Call Interface</div>
+        <div class="fbox" style="background:var(--rbg);border-color:var(--rbd)"><span style="color:var(--red)">Kernel Space</span> — Scheduler · MM · VFS · Networking</div>
+        <div class="farr">↕ Device Driver Interface</div>
+        <div class="fbox" style="background:var(--gbg);border-color:var(--gbd)"><span style="color:var(--green)">Hardware Abstraction Layer (HAL)</span></div>
+        <div class="farr">↕ Bus (PCIe, USB, SATA...)</div>
+        <div class="fbox" style="background:rgba(255,255,255,0.02)">Hardware: CPU · RAM · Disk · GPU · NIC</div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card"><div class="ctitle">Tanpa OS</div><div class="cbody">Program harus tahu cara bicara langsung ke hardware. Setiap program tulis ulang driver-nya sendiri. Tidak portable, sangat rumit.</div></div>
+      <div class="card"><div class="ctitle">Dengan OS</div><div class="cbody">OS menjadi perantara. Program cukup minta lewat system call. OS yang urus hardware. Program jadi portable & aman.</div></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">5 Fungsi Utama OS</div>
+      <div class="cbody">
+        <div style="display:flex;gap:8px;margin-bottom:7px"><span style="font-size:14px">⚙️</span><div><strong>Manajemen Proses</strong> — jalankan, hentikan, bagi waktu CPU antar proses</div></div>
+        <div style="display:flex;gap:8px;margin-bottom:7px"><span style="font-size:14px">🧠</span><div><strong>Manajemen Memori</strong> — alokasikan RAM, virtual memory, swap</div></div>
+        <div style="display:flex;gap:8px;margin-bottom:7px"><span style="font-size:14px">💾</span><div><strong>Sistem File</strong> — abstraksi disk sebagai file & direktori</div></div>
+        <div style="display:flex;gap:8px;margin-bottom:7px"><span style="font-size:14px">🔌</span><div><strong>Manajemen I/O</strong> — keyboard, mouse, layar, jaringan lewat driver</div></div>
+        <div style="display:flex;gap:8px"><span style="font-size:14px">🔒</span><div><strong>Keamanan & Isolasi</strong> — pisahkan proses, kontrol akses, privilege</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OS 1: Kernel -->
+  <div class="ostab" id="os1">
+    <div class="lbl">Kernel — Inti OS</div>
+    <div class="card"><div class="ctitle">Apa itu Kernel?</div><div class="cbody">Kernel adalah bagian inti OS yang berjalan langsung di atas hardware. Punya akses penuh ke semua resource. Selalu ada di RAM selama komputer nyala.</div></div>
+    <div class="card">
+      <div class="ctitle">Arsitektur Kernel Linux</div>
+      <div class="kw2">
+        <div class="kt"><div class="ktitle">User Space (Ring 3)</div><div class="ki"><span class="kitem" style="background:var(--bbg);color:var(--blue)">bash</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">python</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">nginx</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">chrome</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">systemd</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">libc.so</span></div></div>
+        <div class="kt"><div class="ktitle">System Call Interface (boundary)</div><div class="ki"><span class="kitem" style="background:var(--abg);color:var(--amber)">read()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">write()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">open()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">fork()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">mmap()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">socket()</span><span class="kitem" style="background:var(--abg);color:var(--amber)">execve()</span></div></div>
+        <div class="kt"><div class="ktitle">Kernel — Process Management</div><div class="ki"><span class="kitem" style="background:var(--rbg);color:var(--red)">Scheduler (CFS)</span><span class="kitem" style="background:var(--rbg);color:var(--red)">fork/exec</span><span class="kitem" style="background:var(--rbg);color:var(--red)">signals</span><span class="kitem" style="background:var(--rbg);color:var(--red)">namespaces</span><span class="kitem" style="background:var(--rbg);color:var(--red)">cgroups</span></div></div>
+        <div class="kt"><div class="ktitle">Kernel — Memory Management</div><div class="ki"><span class="kitem" style="background:var(--pbg);color:var(--purple)">Virtual Memory</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">Page Table</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">MMU</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">kmalloc</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">Swap</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">OOM Killer</span></div></div>
+        <div class="kt"><div class="ktitle">Kernel — VFS & Networking</div><div class="ki"><span class="kitem" style="background:var(--gbg);color:var(--green)">VFS</span><span class="kitem" style="background:var(--gbg);color:var(--green)">ext4</span><span class="kitem" style="background:var(--gbg);color:var(--green)">tmpfs</span><span class="kitem" style="background:var(--gbg);color:var(--green)">TCP/IP stack</span><span class="kitem" style="background:var(--gbg);color:var(--green)">netfilter</span></div></div>
+        <div class="kt"><div class="ktitle">Device Drivers (loadable modules)</div><div class="ki"><span class="kitem" style="background:var(--cbg);color:var(--cyan)">NIC</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">GPU</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">USB</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">SATA/NVMe</span><span class="kitem" style="background:var(--cbg);color:var(--cyan)">sound</span></div></div>
+        <div class="kt"><div class="ktitle">Hardware (Ring 0)</div><div class="ki"><span class="kitem" style="background:rgba(255,255,255,0.04);color:var(--t2)">CPU</span><span class="kitem" style="background:rgba(255,255,255,0.04);color:var(--t2)">RAM</span><span class="kitem" style="background:rgba(255,255,255,0.04);color:var(--t2)">Disk</span><span class="kitem" style="background:rgba(255,255,255,0.04);color:var(--t2)">NIC</span></div></div>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">CPU Ring 0 vs Ring 3 — Privilege Levels</span><span class="chv">▼</span></div>
+      <div class="ab">
+        <div class="cb"><div class="ct"><span class="cl2">diagram</span></div>
+<pre>Ring 0 (Kernel Mode)
+  ├── Akses ke semua instruksi CPU
+  ├── Bisa baca/tulis semua alamat memori
+  ├── Bisa set interrupt handler
+  └── I/O port langsung
+
+Ring 3 (User Mode) — tempat program kamu berjalan
+  ├── Tidak bisa akses hardware langsung
+  ├── Tidak bisa baca memori proses lain
+  ├── HARUS minta lewat system call untuk I/O
+  └── Coba akses Ring 0 → SIGSEGV (segfault)
+
+Transisi Ring 3 → Ring 0:
+  program memanggil system call (mis: read())
+       ↓ CPU trap (software interrupt)
+  CPU switch ke Ring 0
+       ↓ kernel eksekusi syscall handler
+  Kernel return → CPU kembali ke Ring 3</pre></div>
+      </div>
+    </div>
+    <div class="cb"><div class="ct"><span class="cl2">bash — lihat info kernel</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>uname -r          <span class="cm"># versi kernel: 6.5.0-35-generic</span>
+uname -a          <span class="cm"># info lengkap</span>
+lsmod             <span class="cm"># modul kernel yang loaded</span>
+cat /proc/version <span class="cm"># versi + compiler</span>
+cat /proc/cpuinfo <span class="cm"># info CPU</span>
+cat /proc/meminfo <span class="cm"># info memori</span>
+cat /proc/1/maps  <span class="cm"># memory map PID 1</span></pre></div>
+  </div>
+
+  <!-- OS 2: Hardware -->
+  <div class="ostab" id="os2">
+    <div class="lbl">Hardware & Device Driver</div>
+    <div class="card">
+      <div class="ctitle">Alur Request I/O Lengkap</div>
+      <div class="fcol">
+        <div class="fbox" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue)">Program: f = open("data.txt")</div>
+        <div class="farr">↓ libc wrapper call</div>
+        <div class="fbox">System Call: open("data.txt", O_RDONLY) — CPU trap ke Ring 0</div>
+        <div class="farr">↓ kernel handler</div>
+        <div class="fbox" style="background:var(--rbg);border-color:var(--rbd)"><span style="color:var(--red)">Kernel</span>: VFS lookup → dentry cache → inode</div>
+        <div class="farr">↓ cache miss → block device</div>
+        <div class="fbox">Block Device Driver (ext4, NVMe driver) → DMA request</div>
+        <div class="farr">↓ interrupt saat data siap</div>
+        <div class="fbox" style="background:var(--gbg);border-color:var(--gbd)"><span style="color:var(--green)">Hardware</span>: SSD baca sektor → copy ke RAM via DMA</div>
+        <div class="farr">↓ return ke user space</div>
+        <div class="fbox" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue)">Program dapat file descriptor: fd = 3</div>
+      </div>
+    </div>
+    <div class="cb"><div class="ct"><span class="cl2">bash — strace: lihat syscall nyata</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>sudo apt install strace
+strace ls /tmp               <span class="cm"># lihat semua syscall dari ls</span>
+strace -e trace=read,write ls <span class="cm"># filter syscall tertentu</span>
+strace -p 1234               <span class="cm"># attach ke proses yang berjalan</span>
+strace -c ls /tmp            <span class="cm"># ringkasan statistik</span></pre></div>
+  </div>
+
+  <!-- OS 3: Multitasking -->
+  <div class="ostab" id="os3">
+    <div class="lbl">Multitasking & Scheduling</div>
+    <div class="card">
+      <div class="ctitle">Simulasi CPU Time Slice</div>
+      <div style="font-size:10px;color:var(--t3);font-family:var(--m);margin-bottom:.5rem">klik Start untuk lihat preemptive multitasking:</div>
+      <div class="simbar" id="simtl"></div>
+      <div class="simleg">
+        <span><span style="display:inline-block;width:8px;height:8px;background:#60A5FA;border-radius:1px;margin-right:3px"></span>Chrome</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#4ADE80;border-radius:1px;margin-right:3px"></span>Python</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#FBBF24;border-radius:1px;margin-right:3px"></span>Nginx</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:#A78BFA;border-radius:1px;margin-right:3px"></span>Terminal</span>
+      </div>
+      <button onclick="startSim()" style="margin-top:.625rem;padding:5px 12px;font-size:10px;font-family:var(--m);background:var(--bg1);border:.5px solid var(--bdr);border-radius:5px;color:var(--t2);cursor:pointer">▶ Start</button>
+    </div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">CFS Scheduler + Context Switch</span><span class="chv">▼</span></div>
+      <div class="ab">
+        <div class="ad">Linux pakai <strong>CFS (Completely Fair Scheduler)</strong> — red-black tree, O(log n). Context switch ~1-10µs, terjadi ribuan kali per detik di server.</div>
+        <div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>nice -n 10 python3 script.py  <span class="cm"># prioritas rendah</span>
+renice -n -5 -p 1234          <span class="cm"># ubah prioritas proses</span>
+ps -eo pid,ni,pri,cmd         <span class="cm"># lihat priority</span></pre></div>
+        <div class="cb"><div class="ct"><span class="cl2">diagram — PCB</span></div>
+<pre>PCB (Process Control Block):
+  ├── PID, PPID, state
+  ├── Program Counter (instruksi berikutnya)
+  ├── CPU Registers (rax, rbx, rsp, rbp...)
+  ├── Memory Maps (page table pointer)
+  ├── Open File Descriptors
+  └── Signal handlers</pre></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OS 4: Memory -->
+  <div class="ostab" id="os4">
+    <div class="lbl">Manajemen Memori</div>
+    <div class="grid2">
+      <div>
+        <div class="card"><div class="ctitle">Layout Memori Proses</div>
+          <div class="membar">
+            <div class="memseg" style="background:rgba(96,165,250,0.1);color:var(--blue)">Kernel Space<div style="font-size:9px;font-weight:400;font-family:var(--m);opacity:.7">tidak bisa diakses user</div></div>
+            <div class="memseg" style="background:var(--abg);color:var(--amber)">Stack ↓<div style="font-size:9px;font-weight:400;font-family:var(--m);opacity:.7">variabel lokal, return addr, frames</div></div>
+            <div class="memseg" style="background:rgba(255,255,255,0.02);color:var(--t3);font-size:10px">↕ ruang kosong ↕</div>
+            <div class="memseg" style="background:var(--gbg);color:var(--green)">Heap ↑<div style="font-size:9px;font-weight:400;font-family:var(--m);opacity:.7">malloc/new — alokasi dinamis</div></div>
+            <div class="memseg" style="background:var(--pbg);color:var(--purple)">BSS / Data<div style="font-size:9px;font-weight:400;font-family:var(--m);opacity:.7">variabel global & static</div></div>
+            <div class="memseg" style="background:var(--rbg);color:var(--red)">Text (Code)<div style="font-size:9px;font-weight:400;font-family:var(--m);opacity:.7">instruksi — read-only</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card"><div class="ctitle">Stack vs Heap</div>
+          <div class="cb"><div class="ct"><span class="cl2">python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm"># Stack — otomatis LIFO</span>
+<span class="kw">def</span> <span class="fn">hitung</span>(x):
+    hasil = x * <span class="num">2</span>  <span class="cm"># di stack</span>
+    <span class="kw">return</span> hasil   <span class="cm"># frame hilang</span>
+
+<span class="cm"># Heap — GC otomatis</span>
+data = [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>]  <span class="cm"># list di heap</span></pre></div>
+          <div class="cb"><div class="ct"><span class="cl2">c — manual heap</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">int</span> *p = <span class="fn">malloc</span>(<span class="num">100</span>*<span class="kw">sizeof</span>(<span class="kw">int</span>));
+p[<span class="num">0</span>] = <span class="num">42</span>;
+<span class="fn">free</span>(p); <span class="cm">// WAJIB — leak kalau lupa!</span></pre></div>
+        </div>
+        <div class="card"><div class="ctitle">Virtual Memory</div><div class="cbody">Setiap proses punya address space virtual sendiri. MMU translate ke fisik. Proses A & B bisa sama-sama punya "0x1000" tapi menunjuk RAM yang berbeda → isolasi penuh.</div></div>
+      </div>
+    </div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">Page Table & TLB</span><span class="chv">▼</span></div>
+      <div class="ab"><div class="cb"><div class="ct"><span class="cl2">diagram</span></div>
+<pre>Virtual Addr → [MMU + Page Table] → Physical Addr
+
+Page Table:
+  Virtual Page 0x1000 → Physical Frame 0xA4F00
+  Virtual Page 0x2000 → Physical Frame 0xB2C00
+
+TLB = cache translasi (hit rate ~99%)
+Page Fault = akses alamat belum di-map → kernel allocate
+Segfault = akses alamat invalid → SIGSEGV</pre></div></div>
+    </div>
+  </div>
+
+  <!-- OS 5: Status Proses -->
+  <div class="ostab" id="os5">
+    <div class="lbl">Siklus Hidup Proses</div>
+    <div class="card">
+      <div class="ctitle">5 Status — klik untuk detail</div>
+      <div class="stsgrid">
+        <div class="stsb" style="background:var(--gbg);border-color:var(--gbd);color:var(--green)" onclick="showSts('new')">New</div>
+        <div class="stsb" style="background:var(--abg);border-color:var(--abd);color:var(--amber)" onclick="showSts('ready')">Ready</div>
+        <div class="stsb" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue)" onclick="showSts('running')">Running</div>
+        <div class="stsb" style="background:var(--rbg);border-color:var(--rbd);color:var(--red)" onclick="showSts('blocked')">Blocked</div>
+        <div class="stsb" style="background:rgba(255,255,255,0.03);color:var(--t2)" onclick="showSts('term')">Terminated</div>
+      </div>
+      <div class="stsinfo" id="stsinfo">← klik salah satu status</div>
+    </div>
+    <div class="cb"><div class="ct"><span class="cl2">bash — manage proses</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>ps aux                   <span class="cm"># snapshot semua proses</span>
+ps -eo pid,ppid,stat,cmd <span class="cm"># kolom custom</span>
+<span class="cm"># STAT: R=running S=sleeping D=blocked(I/O) Z=zombie</span>
+top / htop               <span class="cm"># real-time</span>
+kill -15 1234            <span class="cm"># SIGTERM — berhenti baik-baik</span>
+kill -9  1234            <span class="cm"># SIGKILL — paksa</span></pre></div>
+  </div>
+
+  <!-- OS 6: Filesystem -->
+  <div class="ostab" id="os6">
+    <div class="lbl">Sistem File</div>
+    <div class="grid2">
+      <div class="card"><div class="ctitle">Windows</div>
+        <div class="cb"><div class="ct"><span class="cl2">path</span></div><pre>C:\Windows\System32
+C:\Users\Budi\Documents
+D:\Data\Proyek
+E:\   ← USB drive</pre></div>
+      </div>
+      <div class="card"><div class="ctitle">Linux/macOS (Unix)</div>
+        <div class="cb"><div class="ct"><span class="cl2">path</span></div><pre>/home/budi/documents
+/etc/nginx/nginx.conf
+/mnt/usb  ← USB di-mount sini</pre></div>
+      </div>
+    </div>
+    <div class="card"><div class="ctitle">Struktur Direktori Linux</div>
+      <div class="cb"><div class="ct"><span class="cl2">tree</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>/
+├── bin/   <span class="cm">→ program dasar (ls, cp, bash)</span>
+├── boot/  <span class="cm">→ kernel & bootloader</span>
+├── dev/   <span class="cm">→ device files (sda, tty, null)</span>
+├── etc/   <span class="cm">→ konfigurasi sistem</span>
+├── home/  <span class="cm">→ /home/budi</span>
+├── proc/  <span class="cm">→ virtual FS — info proses (BUKAN di disk)</span>
+├── sys/   <span class="cm">→ virtual FS — info hardware</span>
+├── tmp/   <span class="cm">→ file sementara</span>
+├── usr/   <span class="cm">→ python3, git, node, nginx</span>
+└── var/   <span class="cm">→ log, database, cache</span></pre></div>
+    </div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">Inode — Metadata di Balik File</span><span class="chv">▼</span></div>
+      <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>ls -li file.txt   <span class="cm"># ^inode ^perm ^user ^size</span>
+stat file.txt     <span class="cm"># detail lengkap inode</span>
+ln file.txt file2.txt    <span class="cm"># hard link — 1 inode, 2 nama</span>
+ln -s /usr/bin/python3 ~/python  <span class="cm"># symlink</span></pre></div></div>
+    </div>
+  </div>
+
+  <!-- OS 7: IPC -->
+  <div class="ostab" id="os7">
+    <div class="lbl">Interprocess Communication</div>
+    <div class="card"><div class="ctitle">Mengapa IPC?</div><div class="cbody">Setiap proses punya memori terisolasi. IPC = mekanisme resmi OS untuk komunikasi antar proses secara aman.</div></div>
+    <div class="ipcg">
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">📄</div><div class="ctitle">File</div><div class="cbody" style="font-size:11px">Tulis → file → baca. Simpel, paling lambat (lewat disk).</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">open("tmp.txt","w").write(d)
+d = open("tmp.txt").read()</pre></div></div>
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">🔗</div><div class="ctitle">Pipe</div><div class="cbody" style="font-size:11px">Output → input. Di memori. Terminal pakai <code>|</code>.</div><div class="cb"><div class="ct"><span class="cl2">bash</span></div><pre style="font-size:10px">ls | grep ".py" | wc -l</pre></div></div>
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">🔌</div><div class="ctitle">Socket</div><div class="cbody" style="font-size:11px">TCP/UDP. Bisa antar mesin berbeda. Cara browser-server komunikasi.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">s.connect(("localhost",8000))
+s.send(b"GET / HTTP/1.1\r\n")</pre></div></div>
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">⚡</div><div class="ctitle">Shared Memory</div><div class="cbody" style="font-size:11px">OS map RAM sama ke 2 proses. Tercepat. Perlu mutex.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">shm = mmap.mmap(fd, 4096)
+shm.write(b"data")</pre></div></div>
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">📬</div><div class="ctitle">Message Queue</div><div class="cbody" style="font-size:11px">Kirim ke antrian. Asinkron — tidak tunggu penerima.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">q.put("msg"); msg=q.get()</pre></div></div>
+      <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">🚦</div><div class="ctitle">Mutex</div><div class="cbody" style="font-size:11px">Sinkronisasi — cegah race condition di shared resource.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">lock.acquire()
+  # critical section
+lock.release()</pre></div></div>
+    </div>
+    <div class="card"><div class="ctitle">Kecepatan IPC</div>
+      <div style="display:flex;flex-direction:column;gap:5px;margin-top:.5rem">
+        <div class="spdrow"><div class="spdbar" style="width:88%;background:var(--green)">Shared Memory</div><span style="font-size:9px;color:var(--t3);font-family:var(--m)">~ns</span></div>
+        <div class="spdrow"><div class="spdbar" style="width:66%;background:var(--blue)">Pipe / Msg Queue</div><span style="font-size:9px;color:var(--t3);font-family:var(--m)">~µs</span></div>
+        <div class="spdrow"><div class="spdbar" style="width:44%;background:var(--amber)">Unix Socket</div><span style="font-size:9px;color:var(--t3);font-family:var(--m)">~µs</span></div>
+        <div class="spdrow"><div class="spdbar" style="width:24%;background:var(--red)">File (disk)</div><span style="font-size:9px;color:var(--t3);font-family:var(--m)">~ms</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OS 8: Syscall C -->
+  <div class="ostab" id="os8">
+    <div class="lbl">Syscall — C Low Level</div>
+    <div class="card"><div class="ctitle">Kenapa Penting?</div><div class="cbody">Python, Go, Node.js — semuanya pada akhirnya memanggil syscall yang sama ini. Memahami syscall = memahami apa yang benar-benar terjadi.</div></div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">File I/O Syscall (C)</span><span class="chv">▼</span></div>
+      <div class="ab"><div class="cb"><div class="ct"><span class="cl2">c</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">#include</span> &lt;fcntl.h&gt;
+<span class="kw">#include</span> &lt;unistd.h&gt;
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> fd = <span class="fn">open</span>(<span class="str">"data.txt"</span>, O_RDONLY);
+    <span class="kw">char</span> buf[<span class="num">4096</span>];
+    <span class="kw">ssize_t</span> n = <span class="fn">read</span>(fd, buf, <span class="kw">sizeof</span>(buf));
+    <span class="fn">write</span>(<span class="num">1</span>, buf, n);  <span class="cm">// fd=1 adalah stdout</span>
+    <span class="fn">close</span>(fd);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre></div></div>
+    </div>
+    <div class="acc">
+      <div class="ah" onclick="ac(this)"><span class="at">fork() + exec() + wait() (C)</span><span class="chv">▼</span></div>
+      <div class="ab"><div class="cb"><div class="ct"><span class="cl2">c</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">#include</span> &lt;unistd.h&gt;
+<span class="kw">#include</span> &lt;sys/wait.h&gt;
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">pid_t</span> pid = <span class="fn">fork</span>();  <span class="cm">// duplikasi proses</span>
+    <span class="kw">if</span> (pid == <span class="num">0</span>) {
+        <span class="cm">// CHILD PROCESS</span>
+        <span class="fn">execl</span>(<span class="str">"/bin/ls"</span>, <span class="str">"ls"</span>, <span class="str">"-la"</span>, NULL);
+    } <span class="kw">else</span> {
+        <span class="cm">// PARENT PROCESS</span>
+        <span class="kw">int</span> status;
+        <span class="fn">wait</span>(&status);  <span class="cm">// tunggu child selesai</span>
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre></div></div>
+    </div>
+    <div class="cb"><div class="ct"><span class="cl2">bash — syscall numbers Linux x86_64</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm"># read=0  write=1  open=2  close=3  mmap=9</span>
+<span class="cm"># fork=57  execve=59  exit=60  socket=41</span>
+strace -c python3 hello.py  <span class="cm"># lihat syscall yang dipanggil</span></pre></div>
+  </div>
+
+  <div class="navbot">
+    <button class="nvbtn" onclick="go(0,document.querySelectorAll('.tnb')[0])">← Pohon Roadmap</button>
+    <button class="nvbtn" onclick="go(2,document.querySelectorAll('.tnb')[2])">Fase 1: Terminal →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 2 — TERMINAL & LINUX
+════════════════════════════════════ -->
+<div class="pg" id="pg2">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--gbg);border:.5px solid var(--gbd);color:var(--green)">Fase 1 · 2–3 minggu · MULAI DI SINI</div>
+    <div class="ptitle">Terminal & Linux</div>
+    <div class="pmeta">// navigasi · permission · git · env · pipe · ssh</div>
+  </div>
+  <div class="lbl">Checklist</div>
+  <div class="dg">
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Navigasi terminal lancar<div class="cs">cd, ls, pwd, mkdir, rm, cp, mv, cat, less, find</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">File permission (rwx)<div class="cs">chmod, chown, ls -la — krusial untuk server</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Package manager<div class="cs">apt, pip, npm — paham apa yang terjadi di baliknya</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Environment variable & PATH<div class="cs">export, .env file, .bashrc/.zshrc</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Pipe & redirect<div class="cs">|, >, >>, 2>&1, grep, awk, sed, wc</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Git setiap hari<div class="cs">init, add, commit, push, pull, branch, merge</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">SSH ke server<div class="cs">ssh-keygen, ssh user@host, scp, authorized_keys</div></div></div>
+  </div>
+  <div class="lbl">Materi & Kode</div>
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">1.1 — Navigasi Terminal Lengkap</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>pwd; ls -la; cd /tmp; cd ..; cd ~; cd -
+mkdir -p a/b/c; touch f.py; cp f.py bak.py
+mv f.py src/; rm bak.py; rm -rf folder/
+cat file.txt; less file.txt; tail -f app.log
+find . -name "*.py"; grep -rn "def main" src/
+head -20 file.txt; wc -l file.txt</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">1.2 — File Permission & chmod</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="ad">r=4, w=2, x=1. chmod 755 = rwxr-xr-x. chmod 600 = rw------- (secret!).</div>
+  <div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm"># -rwxr-xr--  owner:rwx  group:r-x  others:r--</span>
+chmod 755 script.sh  <span class="cm"># rwxr-xr-x</span>
+chmod 644 config.py  <span class="cm"># rw-r--r--</span>
+chmod 600 .env       <span class="cm"># rw------- (hanya owner!)</span>
+chmod +x deploy.sh
+chown budi:www-data app.py</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">1.3 — Environment Variable & PATH</span><span class="chv">▼</span></div>
+  <div class="ab">
+  <div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>env; printenv
+echo $HOME; echo $PATH; echo $USER
+export API_KEY="abc123"          <span class="cm"># sementara</span>
+echo 'export API_KEY="abc123"' >> ~/.bashrc
+source ~/.bashrc                 <span class="cm"># reload</span>
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc</pre></div>
+  <div class="cb"><div class="ct"><span class="cl2">python — pakai env var</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">import</span> os
+api_key = os.getenv(<span class="str">"API_KEY"</span>)
+port    = <span class="fn">int</span>(os.getenv(<span class="str">"PORT"</span>, <span class="str">"8000"</span>))
+
+<span class="kw">from</span> dotenv <span class="kw">import</span> load_dotenv
+load_dotenv()  <span class="cm"># baca .env otomatis</span></pre></div>
+  <div class="cb"><div class="ct"><span class="cl2">.env — JANGAN commit ke Git!</span></div>
+<pre>API_KEY=abc123secret
+DATABASE_URL=postgresql://user:pass@localhost/mydb
+PORT=8000</pre></div>
+  <div class="warnbox">⚠️ Selalu tambahkan <code>.env</code> ke <code>.gitignore</code> sebelum commit pertama!</div>
+  </div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">1.4 — Pipe, Redirect & Text Processing</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>ls -la | grep ".py"              <span class="cm"># filter</span>
+cat app.log | grep "ERROR"
+ps aux | grep python
+ls | wc -l                       <span class="cm"># hitung file</span>
+cat log.txt | sort | uniq -c    <span class="cm"># frekuensi baris</span>
+ls -la > daftar.txt              <span class="cm"># redirect ke file</span>
+python app.py > out.log 2>&1     <span class="cm"># stdout+stderr</span>
+find . -name "*.pyc" | xargs rm  <span class="cm"># hapus semua .pyc</span>
+ps aux | awk '{print $1, $11}'   <span class="cm"># kolom user+cmd</span>
+cat cfg.txt | sed 's/localhost/0.0.0.0/g'</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">1.5 — Git Workflow Lengkap</span><span class="chv">▼</span></div>
+  <div class="ab">
+  <div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>git config --global user.name "Namamu"
+git config --global user.email "email@kamu.com"
+git init; git clone &lt;url&gt;
+git status; git diff
+git add .; git commit -m "feat: tambah endpoint"
+git push origin main; git pull
+git checkout -b fitur-baru
+git merge fitur-baru; git branch -d fitur-baru
+git log --oneline; git restore file.py
+git reset HEAD~1  <span class="cm"># batalkan commit terakhir</span></pre></div>
+  <div class="cb"><div class="ct"><span class="cl2">.gitignore</span></div>
+<pre>.env
+__pycache__/; *.pyc
+venv/; node_modules/
+.DS_Store; *.log; dist/</pre></div>
+  </div></div>
+
+  <div class="proj"><div class="ptag" style="color:var(--green)">🎯 project fase 1</div><div class="pname">Dotfiles Setup</div><div class="pdesc">Repo GitHub berisi .bashrc/.zshrc + aliases kustom + script install.sh yang auto-setup di komputer baru. Langsung latih Git + terminal + GitHub sekaligus.</div></div>
+  <div class="navbot"><button class="nvbtn" onclick="go(1,document.querySelectorAll('.tnb')[1])">← OS & Kernel</button><button class="nvbtn" onclick="go(3,document.querySelectorAll('.tnb')[3])">Fase 2: Backend →</button></div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 3 — BACKEND
+════════════════════════════════════ -->
+<div class="pg" id="pg3">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--bbg);border:.5px solid var(--bbd);color:var(--blue)">Fase 2 · 6–8 minggu</div>
+    <div class="ptitle">Backend Web Development</div>
+    <div class="pmeta">// python · fastapi · sql · auth · docker</div>
+  </div>
+  <div class="lbl">Checklist</div>
+  <div class="db">
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Python intermediate<div class="cs">functions, class, venv, pip, error handling</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">HTTP & REST API<div class="cs">GET/POST/PUT/DELETE, status code, JSON</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">FastAPI — bikin API lengkap<div class="cs">route, request body, validation, docs otomatis</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Auth JWT + bcrypt<div class="cs">login, register, protected endpoint</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">SQL + SQLModel ORM<div class="cs">PostgreSQL, CRUD, JOIN, relasi tabel</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Docker dasar<div class="cs">Dockerfile, docker-compose, volume</div></div></div>
+  </div>
+  <div class="lbl">Materi & Kode</div>
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">2.1 — Python Virtual Environment</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>mkdir my-api && cd my-api
+python3 -m venv venv
+source venv/bin/activate      <span class="cm"># Linux/macOS</span>
+pip install fastapi uvicorn sqlmodel python-dotenv
+pip freeze > requirements.txt
+deactivate</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">2.2 — FastAPI REST API Lengkap</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python — main.py</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, HTTPException
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+<span class="kw">from</span> typing <span class="kw">import</span> Optional, List
+
+app = FastAPI(title=<span class="str">"My API"</span>)
+
+<span class="kw">class</span> <span class="cl_">Item</span>(BaseModel):
+    name: str; price: float
+    in_stock: bool = <span class="kw">True</span>
+
+db: dict = {}; ctr = <span class="num">1</span>
+
+@app.get(<span class="str">"/"</span>)
+<span class="kw">async def</span> <span class="fn">root</span>(): <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"ok"</span>}
+
+@app.post(<span class="str">"/items"</span>, status_code=<span class="num">201</span>)
+<span class="kw">async def</span> <span class="fn">create</span>(item: Item):
+    <span class="kw">global</span> ctr; db[ctr]=item; ctr+=<span class="num">1</span>
+    <span class="kw">return</span> {<span class="str">"id"</span>: ctr-<span class="num">1</span>, **item.dict()}
+
+@app.get(<span class="str">"/items/{id}"</span>)
+<span class="kw">async def</span> <span class="fn">get</span>(id: <span class="fn">int</span>):
+    <span class="kw">if</span> id <span class="kw">not in</span> db: <span class="kw">raise</span> HTTPException(<span class="num">404</span>, <span class="str">"Not found"</span>)
+    <span class="kw">return</span> db[id]
+
+<span class="cm"># uvicorn main:app --reload</span>
+<span class="cm"># http://localhost:8000/docs  ← docs otomatis!</span></pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">2.3 — Auth JWT + bcrypt</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python — auth.py</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> jose <span class="kw">import</span> jwt; <span class="kw">from</span> passlib.context <span class="kw">import</span> CryptContext
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime, timedelta; <span class="kw">import</span> os
+
+SECRET = os.getenv(<span class="str">"SECRET_KEY"</span>, <span class="str">"ganti-ini!"</span>)
+pwd = CryptContext(schemes=[<span class="str">"bcrypt"</span>], deprecated=<span class="str">"auto"</span>)
+
+<span class="kw">def</span> <span class="fn">hash_pw</span>(p): <span class="kw">return</span> pwd.hash(p)
+<span class="kw">def</span> <span class="fn">verify_pw</span>(p, h): <span class="kw">return</span> pwd.verify(p, h)
+
+<span class="kw">def</span> <span class="fn">create_token</span>(data: dict):
+    exp = datetime.utcnow() + timedelta(minutes=<span class="num">30</span>)
+    <span class="kw">return</span> jwt.encode({**data, <span class="str">"exp"</span>: exp}, SECRET, <span class="str">"HS256"</span>)</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">2.4 — SQL Dasar & SQLModel ORM</span><span class="chv">▼</span></div>
+  <div class="ab">
+  <div class="cb"><div class="ct"><span class="cl2">sql</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR UNIQUE, name TEXT);
+INSERT INTO users (email,name) VALUES ('a@b.com','Budi');
+SELECT * FROM users WHERE email='a@b.com';
+UPDATE users SET name='Budi S' WHERE id=1;
+DELETE FROM users WHERE id=1;
+SELECT u.name,p.title FROM users u JOIN posts p ON p.user_id=u.id;</pre></div>
+  <div class="cb"><div class="ct"><span class="cl2">python — sqlmodel</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> sqlmodel <span class="kw">import</span> SQLModel, Field, Session, create_engine
+<span class="kw">class</span> <span class="cl_">User</span>(SQLModel, table=<span class="kw">True</span>):
+    id: Optional[<span class="fn">int</span>] = Field(default=<span class="kw">None</span>, primary_key=<span class="kw">True</span>)
+    email: str = Field(unique=<span class="kw">True</span>); name: str
+engine = create_engine(<span class="str">"sqlite:///app.db"</span>)
+SQLModel.metadata.create_all(engine)
+<span class="kw">with</span> Session(engine) <span class="kw">as</span> s:
+    s.add(User(email=<span class="str">"a@b.com"</span>,name=<span class="str">"Budi"</span>)); s.commit()</pre></div>
+  </div></div>
+
+  <div class="proj"><div class="ptag" style="color:var(--blue)">🎯 project fase 2</div><div class="pname">REST API Expense Tracker</div><div class="pdesc">CRUD pengeluaran + auth JWT + PostgreSQL + Docker. Portfolio pertama yang bisa ditest orang lain.</div></div>
+  <div class="navbot"><button class="nvbtn" onclick="go(2,document.querySelectorAll('.tnb')[2])">← Fase 1</button><button class="nvbtn" onclick="go(4,document.querySelectorAll('.tnb')[4])">Fase 3: Docker →</button></div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 4 — DOCKER
+════════════════════════════════════ -->
+<div class="pg" id="pg4">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--abg);border:.5px solid var(--abd);color:var(--amber)">Fase 3 · 1–2 minggu</div>
+    <div class="ptitle">Docker — Containerize Everything</div>
+    <div class="pmeta">// image · container · dockerfile · compose · network · kernel</div>
+  </div>
+  <div class="lbl">Checklist</div>
+  <div class="da">
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Image vs container<div class="cs">image = template read-only, container = instance yang berjalan</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Tulis Dockerfile<div class="cs">FROM, COPY, RUN, EXPOSE, CMD, layer caching</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">docker build, run, exec, logs<div class="cs">lifecycle container dasar</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">docker-compose multi-service<div class="cs">API + DB + Redis jalan 1 perintah</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Volume & persistent data<div class="cs">data DB tidak hilang saat restart</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Docker networking<div class="cs">nama service sebagai hostname</div></div></div>
+  </div>
+
+  <div class="lbl">Bagan Arsitektur Docker</div>
+  <div class="dockerd">
+    <div class="dlayer">
+      <div style="font-size:9px;font-family:var(--m);color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.625rem">Kontainer yang berjalan</div>
+      <div class="dcnts">
+        <div class="dcnt" style="background:rgba(74,222,128,0.06);border-color:var(--gbd)">
+          <div style="font-size:11px;font-weight:600;color:var(--green);margin-bottom:5px">Kontainer A — Web API</div>
+          <div class="dcitem" style="background:rgba(74,222,128,0.1);color:var(--green)">App code</div>
+          <div class="dcitem" style="background:rgba(74,222,128,0.1);color:var(--green)">Python 3.11</div>
+          <div class="dcitem" style="background:rgba(74,222,128,0.1);color:var(--green)">FastAPI, psycopg2</div>
+          <div class="dcitem" style="background:rgba(74,222,128,0.1);color:var(--green)">Base: Alpine</div>
+        </div>
+        <div class="dcnt" style="background:rgba(251,191,36,0.06);border-color:var(--abd)">
+          <div style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:5px">Kontainer B — Database</div>
+          <div class="dcitem" style="background:rgba(251,191,36,0.1);color:var(--amber)">PostgreSQL data</div>
+          <div class="dcitem" style="background:rgba(251,191,36,0.1);color:var(--amber)">PostgreSQL 16</div>
+          <div class="dcitem" style="background:rgba(251,191,36,0.1);color:var(--amber)">pg libs</div>
+          <div class="dcitem" style="background:rgba(251,191,36,0.1);color:var(--amber)">Base: Debian</div>
+        </div>
+        <div class="dcnt" style="background:rgba(248,113,113,0.06);border-color:var(--rbd)">
+          <div style="font-size:11px;font-weight:600;color:var(--red);margin-bottom:5px">Kontainer C — Cache</div>
+          <div class="dcitem" style="background:rgba(248,113,113,0.1);color:var(--red)">Cache data</div>
+          <div class="dcitem" style="background:rgba(248,113,113,0.1);color:var(--red)">Redis 7</div>
+          <div class="dcitem" style="background:rgba(248,113,113,0.1);color:var(--red)">redis-server</div>
+          <div class="dcitem" style="background:rgba(248,113,113,0.1);color:var(--red)">Base: Alpine</div>
+        </div>
+      </div>
+      <div style="text-align:center;color:var(--t3);font-size:16px;margin-top:.5rem">↓</div>
+    </div>
+    <div class="dlayer" style="background:rgba(96,165,250,0.04)">
+      <div style="text-align:center;font-size:12px;font-weight:600;color:var(--blue)">Docker Engine (daemon)</div>
+      <div style="text-align:center;font-size:10px;color:var(--t3);margin-top:3px;font-family:var(--m)">manage images · networks · volumes · containers</div>
+    </div>
+    <div class="dlayer" style="background:rgba(255,255,255,0.02)">
+      <div style="text-align:center;font-size:12px;font-weight:500;color:var(--t2)">Host OS — Linux Kernel</div>
+      <div style="text-align:center;font-size:10px;color:var(--t3);margin-top:3px;font-family:var(--m)">namespaces · cgroups · seccomp · overlay2</div>
+    </div>
+    <div class="dlayer" style="background:rgba(255,255,255,0.01)">
+      <div style="text-align:center;font-size:12px;font-weight:500;color:var(--t2)">Hardware (CPU, RAM, Disk)</div>
+    </div>
+  </div>
+
+  <div class="lbl">Materi & Kode</div>
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Dockerfile — Python App</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">dockerfile</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">FROM</span> python:<span class="num">3.12</span>-slim-alpine
+<span class="kw">WORKDIR</span> /app
+<span class="kw">COPY</span> requirements.txt .
+<span class="kw">RUN</span> pip install --no-cache-dir -r requirements.txt
+<span class="kw">COPY</span> . .
+<span class="kw">RUN</span> adduser -D appuser
+<span class="kw">USER</span> appuser
+<span class="kw">EXPOSE</span> <span class="num">8000</span>
+<span class="kw">CMD</span> [<span class="str">"uvicorn"</span>, <span class="str">"main:app"</span>, <span class="str">"--host"</span>, <span class="str">"0.0.0.0"</span>, <span class="str">"--port"</span>, <span class="str">"8000"</span>]</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">docker-compose.yml — API + DB + Cache</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">yaml</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>services:
+  api:
+    build: .
+    ports: [<span class="str">"8000:8000"</span>]
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db/mydb
+      - REDIS_URL=redis://cache:6379
+    depends_on: [db, cache]
+    restart: unless-stopped
+
+  db:
+    image: postgres:<span class="num">16</span>-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: mydb
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  cache:
+    image: redis:<span class="num">7</span>-alpine
+
+volumes:
+  pgdata:</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Perintah Docker Sehari-hari</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>docker compose up -d        <span class="cm"># start semua service</span>
+docker compose down         <span class="cm"># stop semua</span>
+docker compose logs -f api  <span class="cm"># tail logs</span>
+docker compose restart api
+docker ps; docker ps -a
+docker exec -it myapp bash  <span class="cm"># masuk ke container</span>
+docker stats                <span class="cm"># CPU/RAM live</span>
+docker system prune -f      <span class="cm"># bersih-bersih</span></pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Docker & Kernel — Namespaces + cgroups</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="ad">Docker BUKAN VM. Container berbagi kernel yang sama dengan host. Isolasi menggunakan fitur kernel Linux.</div>
+  <div class="cb"><div class="ct"><span class="cl2">diagram</span></div>
+<pre>namespaces → isolasi VIEW:
+  PID ns   → container hanya lihat prosesnya sendiri
+  NET ns   → interface network sendiri
+  MNT ns   → filesystem tree sendiri
+  UTS ns   → hostname sendiri
+
+cgroups → batasi RESOURCE:
+  cpu      → max 0.5 core
+  memory   → max 512MB
+  blkio    → batasi disk I/O
+
+overlay2 → layered filesystem:
+  image layers  : read-only (FROM + RUN + COPY)
+  container layer: read-write (runtime)
+  Copy-on-write : modifikasi tidak ubah layer bawah</pre></div></div></div>
+
+  <div class="proj"><div class="ptag" style="color:var(--amber)">🎯 project fase 3</div><div class="pname">Containerize Expense Tracker</div><div class="pdesc">Bungkus project Fase 2 dalam Docker: Dockerfile + docker-compose API + PostgreSQL + Redis. Jalankan seluruh stack dengan 1 perintah.</div></div>
+  <div class="navbot"><button class="nvbtn" onclick="go(3,document.querySelectorAll('.tnb')[3])">← Fase 2</button><button class="nvbtn" onclick="go(5,document.querySelectorAll('.tnb')[5])">Fase 4: Deploy →</button></div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 5 — DEPLOY
+════════════════════════════════════ -->
+<div class="pg" id="pg5">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--pbg);border:.5px solid var(--pbd);color:var(--purple)">Fase 4 · 3–4 minggu</div>
+    <div class="ptitle">Deploy & Home Server</div>
+    <div class="pmeta">// vps · ssh · nginx · https · ci/cd</div>
+  </div>
+  <div class="lbl">Checklist</div>
+  <div class="dp">
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Setup VPS — akses pertama<div class="cs">provider, SSH, update sistem, user non-root</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Hardening — firewall & SSH<div class="cs">ufw, disable root login, SSH key only</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Docker di server + jalankan app<div class="cs">git clone → docker compose up -d</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Nginx reverse proxy<div class="cs">proxy_pass ke container</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Domain + HTTPS Certbot<div class="cs">DNS → IP VPS, Let's Encrypt</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Auto-deploy GitHub Actions<div class="cs">push main → SSH → docker compose up</div></div></div>
+  </div>
+
+  <div class="lbl">Bagan Alur Deploy</div>
+  <div style="border:.5px solid var(--bdr);border-radius:10px;padding:.875rem 1rem;background:var(--bg1);overflow-x:auto">
+    <div style="display:flex;align-items:stretch;gap:0;min-width:580px">
+      <div style="background:var(--pbg);border:.5px solid var(--pbd);border-radius:8px;padding:.75rem;min-width:110px;text-align:center;flex-shrink:0">
+        <div style="font-size:12px;font-weight:600;color:var(--purple);margin-bottom:4px">💻 PC Kamu</div>
+        <div style="font-size:9px;color:var(--t3);font-family:var(--m)">tulis kode<br>test lokal<br>localhost:8000</div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 8px;flex-shrink:0">
+        <div style="font-size:9px;font-family:var(--m);color:var(--t3);margin-bottom:2px">git push</div>
+        <div style="color:var(--t3);font-size:16px">→</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:.5px solid var(--bdr);border-radius:8px;padding:.75rem;min-width:95px;text-align:center;flex-shrink:0">
+        <div style="font-size:12px;font-weight:600;color:var(--t1);margin-bottom:4px">GitHub</div>
+        <div style="font-size:9px;color:var(--t3);font-family:var(--m)">repo<br>CI/CD<br>Actions</div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 8px;flex-shrink:0">
+        <div style="font-size:9px;font-family:var(--m);color:var(--t3);margin-bottom:2px">auto deploy</div>
+        <div style="color:var(--t3);font-size:16px">→</div>
+      </div>
+      <div style="background:var(--gbg);border:.5px solid var(--gbd);border-radius:8px;padding:.75rem;flex:1;min-width:160px">
+        <div style="font-size:12px;font-weight:600;color:var(--green);text-align:center;margin-bottom:6px">🖥 VPS Linux</div>
+        <div style="background:rgba(74,222,128,0.06);border:.5px solid var(--gbd);border-radius:6px;padding:.5rem">
+          <div style="font-size:10px;font-weight:500;color:var(--green);text-align:center;margin-bottom:4px">Docker</div>
+          <div style="font-size:9px;font-family:var(--m);background:rgba(74,222,128,0.08);border-radius:3px;padding:2px 7px;margin-bottom:3px;color:var(--green);text-align:center">Nginx (reverse proxy)</div>
+          <div style="font-size:9px;font-family:var(--m);background:rgba(74,222,128,0.08);border-radius:3px;padding:2px 7px;margin-bottom:3px;color:var(--green);text-align:center">App FastAPI</div>
+          <div style="font-size:9px;font-family:var(--m);background:rgba(74,222,128,0.08);border-radius:3px;padding:2px 7px;color:var(--green);text-align:center">PostgreSQL</div>
+        </div>
+        <div style="font-size:9px;color:var(--t3);font-family:var(--m);text-align:center;margin-top:5px">api.namaapp.com · 24/7</div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 8px;flex-shrink:0">
+        <div style="font-size:9px;font-family:var(--m);color:var(--t3);margin-bottom:2px">HTTPS</div>
+        <div style="color:var(--t3);font-size:16px">→</div>
+      </div>
+      <div style="background:var(--bbg);border:.5px solid var(--bbd);border-radius:8px;padding:.75rem;min-width:70px;text-align:center;flex-shrink:0">
+        <div style="font-size:12px;font-weight:600;color:var(--blue)">🌐 Net</div>
+        <div style="font-size:9px;color:var(--t3);font-family:var(--m);margin-top:4px">User<br>Browser</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:.5rem;font-size:9px;color:var(--t3);font-family:var(--m)">↑ SSH dari terminal kapan saja untuk manage server</div>
+  </div>
+
+  <div class="lbl">Materi & Kode</div>
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Setup VPS dari Nol</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>ssh root@IP_VPS
+apt update && apt upgrade -y
+adduser budi; usermod -aG sudo budi
+<span class="cm"># Di komputer lokal:</span>
+ssh-keygen -t ed25519 -C "email@kamu.com"
+ssh-copy-id budi@IP_VPS
+<span class="cm"># /etc/ssh/sshd_config:</span>
+<span class="cm"># PermitRootLogin no | PasswordAuthentication no</span>
+sudo systemctl restart sshd
+sudo ufw allow 22,80,443/tcp && sudo ufw enable
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker budi</pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Nginx Reverse Proxy + SSL Certbot</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">nginx</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>server {
+    listen 80;
+    server_name api.domainku.com;
+    location / {
+        proxy_pass         http://localhost:8000;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+    }
+}
+<span class="cm"># sudo certbot --nginx -d api.domainku.com</span></pre></div></div></div>
+
+  <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">GitHub Actions Auto-Deploy</span><span class="chv">▼</span></div>
+  <div class="ab"><div class="cb"><div class="ct"><span class="cl2">yaml — .github/workflows/deploy.yml</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>name: Deploy
+on:
+  push: { branches: [main] }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd ~/my-api
+            git pull origin main
+            docker compose up -d --build
+            docker system prune -f</pre></div></div></div>
+
+  <div class="proj"><div class="ptag" style="color:var(--purple)">🎯 project fase 4</div><div class="pname">API Live di Internet</div><div class="pdesc">api.namakamu.com — HTTPS, auto-restart jika crash, auto-deploy setiap push ke GitHub.</div></div>
+  <div class="navbot"><button class="nvbtn" onclick="go(4,document.querySelectorAll('.tnb')[4])">← Fase 3</button><button class="nvbtn" onclick="go(6,document.querySelectorAll('.tnb')[6])">Fase 5: Startup →</button></div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 6 — STARTUP
+════════════════════════════════════ -->
+<div class="pg" id="pg6">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--cbg);border:.5px solid var(--cbd);color:var(--cyan)">Fase 5 · Ongoing</div>
+    <div class="ptitle">Startup & Project Nyata</div>
+    <div class="pmeta">// mvp · pengguna · iterate · ship</div>
+  </div>
+  <div class="lbl">Checklist</div>
+  <div class="dc">
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Temukan 1 masalah nyata<div class="cs">mulai dari frustrasi sendiri, bukan "ingin bikin startup"</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Validasi ke 10 orang sebelum coding<div class="cs">apakah masalah nyata mereka?</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">MVP dalam 2–4 minggu<div class="cs">fitur paling inti saja — bukan yang sempurna</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Frontend minimal<div class="cs">HTML + Tailwind atau Next.js</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Launch ke 5 pengguna pertama<div class="cs">minta feedback jujur, bukan pujian</div></div></div>
+    <div class="ci" onclick="tk(this)"><div class="cbox">✓</div><div class="cl">Iterate berdasarkan feedback<div class="cs">fix yang paling mengganggu mereka</div></div></div>
+  </div>
+  <div class="lbl">Ide Project Konkret</div>
+  <div class="grid2">
+    <div class="card"><div class="ctitle" style="color:var(--purple)">💸 Expense Tracker</div><div class="cbody" style="font-size:11px">Catat pengeluaran harian, kategori, laporan bulanan. Masalah nyata semua orang.</div></div>
+    <div class="card"><div class="ctitle" style="color:var(--blue)">📚 Link Saver</div><div class="cbody" style="font-size:11px">Simpan artikel dengan tag. Lebih baik dari bookmark browser.</div></div>
+    <div class="card"><div class="ctitle" style="color:var(--green)">🤖 Bot Telegram</div><div class="cbody" style="font-size:11px">Pengingat harian, pencatat via chat. Cepat dibuat.</div></div>
+    <div class="card"><div class="ctitle" style="color:var(--red)">📊 Dashboard Data</div><div class="cbody" style="font-size:11px">API publik → grafik berguna. Harga saham/kripto lokal.</div></div>
+  </div>
+  <div class="proj"><div class="ptag" style="color:var(--cyan)">🚀 target akhir</div><div class="pname">Produk yang Dipakai Orang Lain</div><div class="pdesc">Yang membedakan bukan teknologinya — tapi seberapa cepat kamu menemukan masalah yang benar-benar ingin diselesaikan orang. Ship dulu, sempurnakan nanti.</div></div>
+  <div class="navbot"><button class="nvbtn" onclick="go(5,document.querySelectorAll('.tnb')[5])">← Fase 4</button><button class="nvbtn" onclick="go(7,document.querySelectorAll('.tnb')[7])">Backend Deep Dive →</button></div>
+</div>
+
+<!-- ════════════════════════════════════
+  PAGE 7 — BACKEND DEEP DIVE
+════════════════════════════════════ -->
+<div class="pg" id="pg7">
+  <div class="ph">
+    <div class="pbadge" style="background:var(--obg);border:.5px solid var(--obd);color:var(--orange)">Deep Dive · Backend Engineering</div>
+    <div class="ptitle">Backend & Infrastructure Mendalam</div>
+    <div class="pmeta">// apis · database · servers · networking · security · monitoring · backups</div>
+  </div>
+
+  <div class="stabs">
+    <button class="tnb xo" onclick="be(0,this)" id="bet0">APIs & REST</button>
+    <button class="tnb" onclick="be(1,this)" id="bet1">Database</button>
+    <button class="tnb" onclick="be(2,this)" id="bet2">Servers</button>
+    <button class="tnb" onclick="be(3,this)" id="bet3">Networking</button>
+    <button class="tnb" onclick="be(4,this)" id="bet4">Security</button>
+    <button class="tnb" onclick="be(5,this)" id="bet5">Monitoring</button>
+    <button class="tnb" onclick="be(6,this)" id="bet6">CI/CD</button>
+    <button class="tnb" onclick="be(7,this)" id="bet7">Backups</button>
+  </div>
+
+  <!-- BE 0: APIs -->
+  <div class="ostab on" id="be0">
+    <div class="lbl">REST API — Prinsip & Implementasi</div>
+    <div class="cb"><div class="ct"><span class="cl2">http — REST conventions</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>GET    /users          <span class="cm"># list semua</span>
+GET    /users/123      <span class="cm"># detail satu</span>
+POST   /users          <span class="cm"># buat baru → 201 Created</span>
+PUT    /users/123      <span class="cm"># update penuh</span>
+PATCH  /users/123      <span class="cm"># update sebagian</span>
+DELETE /users/123      <span class="cm"># hapus → 204 No Content</span>
+GET    /users/123/posts <span class="cm"># nested resource</span>
+GET    /users?role=admin&page=2&limit=20  <span class="cm"># filter</span>
+
+<span class="cm"># Status codes penting:</span>
+<span class="cm"># 200 OK | 201 Created | 204 No Content</span>
+<span class="cm"># 400 Bad Request | 401 Unauthorized | 403 Forbidden</span>
+<span class="cm"># 404 Not Found | 422 Validation Error | 429 Too Many Requests</span>
+<span class="cm"># 500 Internal Server Error</span></pre></div>
+
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">FastAPI — Full CRUD + Auth</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, HTTPException, Depends, status
+<span class="kw">from</span> fastapi.security <span class="kw">import</span> HTTPBearer, HTTPAuthorizationCredentials
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+<span class="kw">from</span> typing <span class="kw">import</span> List, Optional
+<span class="kw">import</span> jwt
+
+app = FastAPI()
+security = HTTPBearer()
+
+<span class="kw">class</span> <span class="cl_">User</span>(BaseModel):
+    name: str; email: str; role: str = <span class="str">"user"</span>
+
+<span class="kw">async def</span> <span class="fn">get_user</span>(creds: HTTPAuthorizationCredentials = Depends(security)):
+    payload = jwt.decode(creds.credentials, SECRET, [<span class="str">"HS256"</span>])
+    <span class="kw">return</span> payload
+
+@app.get(<span class="str">"/users"</span>, response_model=List[User])
+<span class="kw">async def</span> <span class="fn">list_users</span>(current=Depends(get_user)):
+    <span class="kw">return</span> []  <span class="cm"># query dari DB</span>
+
+@app.post(<span class="str">"/users"</span>, status_code=<span class="num">201</span>)
+<span class="kw">async def</span> <span class="fn">create_user</span>(user: User):
+    <span class="kw">return</span> user  <span class="cm"># simpan ke DB</span></pre></div></div></div>
+
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Rate Limiting dengan Redis</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> fastapi <span class="kw">import</span> Request, HTTPException
+<span class="kw">from</span> redis <span class="kw">import</span> Redis
+
+r = Redis(host=<span class="str">'cache'</span>, port=<span class="num">6379</span>, decode_responses=<span class="kw">True</span>)
+LIMIT = <span class="num">100</span>; WINDOW = <span class="num">60</span>  <span class="cm"># 100 req/menit</span>
+
+<span class="kw">async def</span> <span class="fn">rate_limit</span>(req: Request):
+    key = <span class="fn">f</span><span class="str">"rl:{req.client.host}"</span>
+    current = r.get(key)
+    <span class="kw">if</span> current <span class="kw">is None</span>: r.setex(key, WINDOW, <span class="num">1</span>); <span class="kw">return</span>
+    <span class="kw">if</span> <span class="fn">int</span>(current) >= LIMIT:
+        <span class="kw">raise</span> HTTPException(<span class="num">429</span>, <span class="str">"Too many requests"</span>)
+    r.incr(key)</pre></div></div></div>
+  </div>
+
+  <!-- BE 1: Database -->
+  <div class="ostab" id="be1">
+    <div class="lbl">Database — SQL Advanced</div>
+    <div class="grid2">
+      <div class="card"><div class="ctitle" style="color:var(--blue)">SQL (Relational)</div><div class="cbody" style="font-size:11px">PostgreSQL, MySQL, SQLite<br>✅ ACID · Complex JOIN · Constraints<br>❌ Harder horizontal scaling<br>Use: banking, e-commerce</div></div>
+      <div class="card"><div class="ctitle" style="color:var(--green)">NoSQL</div><div class="cbody" style="font-size:11px">MongoDB, Redis, Cassandra<br>✅ Flexible schema · Horizontal scale<br>❌ No native JOIN<br>Use: cache, logs, real-time</div></div>
+    </div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Advanced SQL — JOIN, CTE, Window Functions</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">sql</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm">-- LEFT JOIN dengan COUNT</span>
+<span class="kw">SELECT</span> u.name, <span class="fn">COUNT</span>(p.id) <span class="kw">AS</span> posts
+<span class="kw">FROM</span> users u <span class="kw">LEFT JOIN</span> posts p <span class="kw">ON</span> p.user_id=u.id
+<span class="kw">GROUP BY</span> u.id;
+
+<span class="cm">-- CTE</span>
+<span class="kw">WITH</span> recent <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> posts <span class="kw">WHERE</span> created_at > <span class="fn">NOW</span>()-<span class="kw">INTERVAL</span> <span class="str">'7 days'</span>
+)
+<span class="kw">SELECT</span> u.name, <span class="fn">COUNT</span>(r.id) <span class="kw">FROM</span> users u <span class="kw">JOIN</span> recent r <span class="kw">ON</span> r.user_id=u.id <span class="kw">GROUP BY</span> u.name;
+
+<span class="cm">-- Window function: ranking</span>
+<span class="kw">SELECT</span> name, salary, <span class="fn">RANK</span>() <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> salary <span class="kw">DESC</span>) <span class="kw">AS</span> rank
+<span class="kw">FROM</span> employees;
+
+<span class="cm">-- Index untuk performance</span>
+<span class="kw">CREATE INDEX</span> idx_email <span class="kw">ON</span> users(email);
+<span class="kw">EXPLAIN ANALYZE SELECT</span> * <span class="kw">FROM</span> users <span class="kw">WHERE</span> email=<span class="str">'x@y.com'</span>;</pre></div></div></div>
+
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Transaction & ACID</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">sql + python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm">-- SQL: transfer uang — HARUS atomik</span>
+<span class="kw">BEGIN</span>;
+<span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance=balance-<span class="num">100</span> <span class="kw">WHERE</span> id=<span class="num">1</span>;
+<span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance=balance+<span class="num">100</span> <span class="kw">WHERE</span> id=<span class="num">2</span>;
+<span class="kw">COMMIT</span>;  <span class="cm">-- atau ROLLBACK jika error</span>
+
+<span class="cm"># Python SQLModel:</span>
+<span class="kw">with</span> Session(engine) <span class="kw">as</span> s:
+    <span class="kw">try</span>:
+        from_acc.balance -= amount
+        to_acc.balance += amount
+        s.add(from_acc); s.add(to_acc); s.commit()
+    <span class="kw">except</span>:
+        s.rollback(); <span class="kw">raise</span></pre></div></div></div>
+
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Redis Cache Pattern</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">import</span> redis, json
+r = redis.Redis(host=<span class="str">'cache'</span>, decode_responses=<span class="kw">True</span>)
+
+<span class="kw">def</span> <span class="fn">get_user</span>(user_id: <span class="fn">int</span>):
+    cached = r.get(<span class="fn">f</span><span class="str">"user:{user_id}"</span>)
+    <span class="kw">if</span> cached: <span class="kw">return</span> json.loads(cached)
+    user = db_query(user_id)  <span class="cm"># query DB</span>
+    r.setex(<span class="fn">f</span><span class="str">"user:{user_id}"</span>, <span class="num">3600</span>, json.dumps(user))
+    <span class="kw">return</span> user
+
+<span class="kw">def</span> <span class="fn">update_user</span>(user_id, data):
+    db_update(user_id, data)
+    r.delete(<span class="fn">f</span><span class="str">"user:{user_id}"</span>)  <span class="cm"># invalidate cache</span></pre></div></div></div>
+  </div>
+
+  <!-- BE 2: Servers -->
+  <div class="ostab" id="be2">
+    <div class="lbl">Web Server & App Server</div>
+    <div class="card">
+      <div class="ctitle">Production Stack</div>
+      <div class="fcol">
+        <div class="fbox" style="background:var(--bbg);border-color:var(--bbd);color:var(--blue)">Internet → Port 80/443</div>
+        <div class="farr">↓</div>
+        <div class="fbox" style="background:var(--gbg);border-color:var(--gbd);color:var(--green)">Nginx (reverse proxy, SSL, static files, gzip)</div>
+        <div class="farr">↓ proxy_pass http://localhost:8000</div>
+        <div class="fbox" style="background:var(--pbg);border-color:var(--pbd);color:var(--purple)">Gunicorn + Uvicorn Workers (4 workers)</div>
+        <div class="farr">↓</div>
+        <div class="fbox">FastAPI App (Python async code)</div>
+        <div class="farr">↓</div>
+        <div class="fbox" style="background:var(--abg);border-color:var(--abd)">PostgreSQL + Redis</div>
+      </div>
+    </div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Nginx — Full Config dengan SSL + Load Balancing</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">nginx.conf</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>upstream backend {
+    least_conn;
+    server localhost:<span class="num">8001</span> weight=<span class="num">3</span>;
+    server localhost:<span class="num">8002</span> weight=<span class="num">2</span>;
+}
+
+server {
+    listen <span class="num">443</span> ssl http2;
+    server_name api.example.com;
+    ssl_certificate     /etc/letsencrypt/live/.../fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/.../privkey.pem;
+    add_header X-Frame-Options <span class="str">"SAMEORIGIN"</span> always;
+    add_header X-Content-Type-Options <span class="str">"nosniff"</span> always;
+    gzip on;
+    gzip_types text/plain application/json application/javascript;
+    location /static/ { alias /var/www/static/; expires 1y; }
+    location / {
+        proxy_pass http://backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_connect_timeout 60s;
+    }
+}</pre></div></div></div>
+
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Gunicorn + Systemd Service</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash + systemd</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>gunicorn main:app \
+    --workers 4 \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --bind 0.0.0.0:8000
+
+<span class="cm"># /etc/systemd/system/myapi.service</span>
+[Service]
+ExecStart=/venv/bin/gunicorn main:app \
+    --workers 4 --worker-class uvicorn.workers.UvicornWorker
+Restart=always
+<span class="cm"># sudo systemctl enable myapi && sudo systemctl start myapi</span></pre></div></div></div>
+  </div>
+
+  <!-- BE 3: Networking -->
+  <div class="ostab" id="be3">
+    <div class="lbl">Networking — HTTP, TCP/IP, DNS</div>
+    <div class="card">
+      <div class="ctitle">OSI Model</div>
+      <div class="kw2">
+        <div class="kt"><div class="ktitle">Layer 7 — Application</div><div class="ki"><span class="kitem" style="background:var(--bbg);color:var(--blue)">HTTP/HTTPS</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">DNS</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">SSH</span><span class="kitem" style="background:var(--bbg);color:var(--blue)">SMTP</span></div></div>
+        <div class="kt"><div class="ktitle">Layer 4 — Transport</div><div class="ki"><span class="kitem" style="background:var(--gbg);color:var(--green)">TCP</span><span class="kitem" style="background:var(--gbg);color:var(--green)">UDP</span><span class="kitem" style="background:var(--gbg);color:var(--green)">Port Numbers</span></div></div>
+        <div class="kt"><div class="ktitle">Layer 3 — Network</div><div class="ki"><span class="kitem" style="background:var(--pbg);color:var(--purple)">IP (v4/v6)</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">Routing</span><span class="kitem" style="background:var(--pbg);color:var(--purple)">ICMP</span></div></div>
+        <div class="kt"><div class="ktitle">Layer 2-1 — Data Link / Physical</div><div class="ki"><span class="kitem" style="background:var(--abg);color:var(--amber)">Ethernet</span><span class="kitem" style="background:var(--abg);color:var(--amber)">MAC Address</span><span class="kitem" style="background:var(--abg);color:var(--amber)">WiFi</span></div></div>
+      </div>
+    </div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">TCP 3-Way Handshake</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">diagram</span></div>
+<pre>Client            Server
+  | SYN →              |
+  |     ← SYN-ACK      |
+  | ACK →              |
+  | [Connected]        |
+  | Data transfer...   |
+  | FIN →              |
+  |     ← ACK, FIN     |
+  | ACK →              |
+  | [Closed]           |</pre></div></div></div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">DNS & HTTPS</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>dig example.com A     <span class="cm"># IPv4</span>
+dig example.com MX    <span class="cm"># mail server</span>
+dig +trace example.com <span class="cm"># trace DNS resolution</span>
+sudo certbot --nginx -d example.com
+sudo certbot renew --dry-run</pre></div></div></div>
+  </div>
+
+  <!-- BE 4: Security -->
+  <div class="ostab" id="be4">
+    <div class="lbl">Security Best Practices</div>
+    <div class="card"><div class="ctitle">OWASP Top 10</div><div class="cbody">1. Injection · 2. Broken Auth · 3. Sensitive Data · 4. XXE · 5. Broken Access Control · 6. Security Misconfiguration · 7. XSS · 8. Insecure Deserialization · 9. Known Vulnerabilities · 10. Insufficient Logging</div></div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">SQL Injection Prevention</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python — BAD vs GOOD</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="cm"># ❌ BAD: SQL Injection vulnerable</span>
+query = <span class="fn">f</span><span class="str">"SELECT * FROM users WHERE email='{email}'"</span>
+
+<span class="cm"># ✅ GOOD: Parameterized query</span>
+query = <span class="str">"SELECT * FROM users WHERE email = %s"</span>
+cursor.execute(query, (email,))
+
+<span class="cm"># ✅ BETTER: ORM (SQLModel/SQLAlchemy)</span>
+session.exec(select(User).where(User.email == email))</pre></div></div></div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Security Headers & Best Practices</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python — fastapi middleware</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">from</span> fastapi.middleware.cors <span class="kw">import</span> CORSMiddleware
+app.add_middleware(CORSMiddleware,
+    allow_origins=[<span class="str">"https://myapp.com"</span>],  <span class="cm"># bukan "*"!</span>
+    allow_methods=[<span class="str">"GET"</span>,<span class="str">"POST"</span>],
+    allow_headers=[<span class="str">"Authorization"</span>])
+
+<span class="cm"># .env — jangan pernah hardcode</span>
+<span class="cm"># Gunakan: secrets.token_urlsafe(32) untuk SECRET_KEY</span>
+<span class="cm"># Password: bcrypt dengan cost factor 12+</span>
+<span class="cm"># JWT: expiry pendek (15-30 menit) + refresh token</span></pre></div></div></div>
+  </div>
+
+  <!-- BE 5: Monitoring -->
+  <div class="ostab" id="be5">
+    <div class="lbl">Monitoring & Logging</div>
+    <div class="card"><div class="ctitle">Golden Signals</div><div class="cbody"><strong>Latency</strong> — berapa lama response. <strong>Traffic</strong> — berapa request/detik. <strong>Errors</strong> — berapa persen gagal. <strong>Saturation</strong> — seberapa penuh resource.</div></div>
+    <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Health Check + Structured Logging</span><span class="chv">▼</span></div>
+    <div class="ab"><div class="cb"><div class="ct"><span class="cl2">python</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">import</span> logging, json
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+<span class="kw">def</span> <span class="fn">log_event</span>(event: str, **kwargs):
+    logging.info(json.dumps({
+        <span class="str">"event"</span>: event,
+        <span class="str">"time"</span>: datetime.utcnow().isoformat(),
+        **kwargs
+    }))
+
+log_event(<span class="str">"user_login"</span>, user_id=<span class="num">123</span>, ip=<span class="str">"1.2.3.4"</span>)
+
+@app.get(<span class="str">"/health"</span>)
+<span class="kw">async def</span> <span class="fn">health</span>():
+    <span class="kw">try</span>: engine.connect(); db_ok = <span class="kw">True</span>
+    <span class="kw">except</span>: db_ok = <span class="kw">False</span>
+    <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"ok"</span> <span class="kw">if</span> db_ok <span class="kw">else</span> <span class="str">"degraded"</span>, <span class="str">"db"</span>: db_ok}</pre></div></div></div>
+  </div>
+
+  <!-- BE 6: CI/CD -->
+  <div class="ostab" id="be6">
+    <div class="lbl">CI/CD Pipeline Lengkap</div>
+    <div class="cb"><div class="ct"><span class="cl2">yaml — .github/workflows/ci-cd.yml</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>name: CI/CD
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: { python-version: <span class="str">'3.12'</span> }
+      - run: pip install -r requirements.txt
+      - run: pytest --cov=app tests/
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/my-api
+            git pull origin main
+            docker compose up -d --build
+            docker system prune -f
+            echo "Deploy done: $(date)"</pre></div>
+  </div>
+
+  <!-- BE 7: Backups -->
+  <div class="ostab" id="be7">
+    <div class="lbl">Backup & Recovery</div>
+    <div class="card"><div class="ctitle">3-2-1 Rule</div><div class="cbody">3 salinan data · 2 media berbeda · 1 off-site. Test restore secara berkala — backup yang tidak pernah di-test = tidak ada backup.</div></div>
+    <div class="cb"><div class="ct"><span class="cl2">bash — PostgreSQL backup + upload S3</span><button class="cc" onclick="cp(this)">copy</button></div>
+<pre>pg_dump -U postgres mydb > backup_$(date +%Y%m%d).sql
+psql -U postgres mydb < backup_20260516.sql
+
+<span class="cm"># Cron otomatis jam 2 pagi</span>
+0 2 * * * pg_dump -U postgres mydb | gzip > /backups/db_$(date +%Y%m%d).sql.gz
+<span class="cm"># Upload ke S3</span>
+aws s3 cp /backups/db_$(date +%Y%m%d).sql.gz s3://my-backups/</pre></div>
+  </div>
+
+  <div class="navbot"><button class="nvbtn" onclick="go(6,document.querySelectorAll('.tnb')[6])">← Fase 5</button><button class="nvbtn" onclick="go(0,document.querySelectorAll('.tnb')[0])">Kembali ke Pohon 🗺</button></div>
+</div>
+
+<script>
+// ── NAVIGATION ──
+const TCOLS=[['xr'],['xr'],['xb'],['xg'],['xa'],['xp'],['xc'],['xo']];
+function go(i,btn){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg'+i).classList.add('on');
+  document.querySelectorAll('.topnav .tnb').forEach((b,j)=>{
+    ['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));
+    if(j===i) b.classList.add(TCOLS[i][0]);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── OS SUBTABS ──
+function os(i,btn){
+  document.querySelectorAll('.ostab').forEach((t,j)=>t.classList.toggle('on',j===i));
+  const cols=['xr','xb','xg','xa','xp','xc','xb','xr','xa'];
+  for(let j=0;j<9;j++){
+    const b=document.getElementById('ost'+j);
+    if(b){['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));if(j===i)b.classList.add(cols[j]);}
+  }
+}
+
+// ── BACKEND SUBTABS ──
+function be(i,btn){
+  const tabs=document.querySelectorAll('#pg7 .ostab');
+  tabs.forEach((t,j)=>t.classList.toggle('on',j===i));
+  const cols=['xo','xb','xg','xa','xr','xp','xc','xo'];
+  for(let j=0;j<8;j++){
+    const b=document.getElementById('bet'+j);
+    if(b){['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));if(j===i)b.classList.add(cols[j]);}
+  }
+}
+
+// ── ACCORDION ──
+function ac(hdr){
+  const body=hdr.nextElementSibling;
+  const chv=hdr.querySelector('.chv');
+  body.classList.toggle('on',!body.classList.contains('on'));
+  chv.classList.toggle('on',!chv.classList.contains('on'));
+}
+
+// ── CHECKLIST ──
+function tk(el){
+  el.classList.toggle('ckd');
+  el.querySelector('.cbox').classList.toggle('ck');
+  updateBar();
+}
+function updateBar(){
+  const all=document.querySelectorAll('.ci').length;
+  const done=document.querySelectorAll('.ci.ckd').length;
+  const pct=all?Math.round(done/all*100):0;
+  document.getElementById('gbar').style.width=pct+'%';
+  document.getElementById('gpct').textContent=pct+'%';
+}
+
+// ── MULTITASKING SIM ──
+const SC=['#60A5FA','#4ADE80','#FBBF24','#A78BFA'];
+let SI=null;
+function startSim(){
+  const tl=document.getElementById('simtl');
+  tl.innerHTML=''; let t=0;
+  if(SI)clearInterval(SI);
+  SI=setInterval(()=>{
+    if(t>=80){clearInterval(SI);return;}
+    const s=document.createElement('div');
+    s.style.cssText=`flex:1;background:${SC[Math.floor(Math.random()*4)]};min-width:3px`;
+    tl.appendChild(s);
+    if(tl.children.length>80)tl.removeChild(tl.children[0]);
+    t++;
+  },100);
+}
+
+// ── PROCESS STATUS ──
+const SI2={
+  new:'<strong>New</strong>: OS baru buat proses — alokasi PID, siapkan PCB, muat program ke RAM.',
+  ready:'<strong>Ready</strong>: Proses siap, menunggu giliran CPU di ready queue.',
+  running:'<strong>Running</strong>: Proses pakai CPU. Hanya 1 per core bersamaan.',
+  blocked:'<strong>Blocked</strong>: Nunggu I/O (disk/network/keyboard). CPU dibebaskan.',
+  term:'<strong>Terminated</strong>: Proses selesai/di-kill. OS simpan exit code lalu hapus.'
+};
+function showSts(s){document.getElementById('stsinfo').innerHTML=SI2[s];}
+
+// ── COPY ──
+function cp(btn){
+  const pre=btn.closest('.cb').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
+    btn.textContent='copied!';
+    setTimeout(()=>btn.textContent='copy',1800);
+  });
+}
+
+// init
+document.getElementById('ost0').classList.add('xr');
+document.getElementById('bet0').classList.add('xo');
+</script>
+</body>
+</html>
