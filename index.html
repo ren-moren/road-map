@@ -5,205 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="karakter.png">
 <title>Roadmap by Faymen</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#000;
-  --bg1:#0a0a0a;
-  --bg2:#111;
-  --bg3:#161618;
-  --bdr:rgba(255,255,255,0.07);
-  --bdr2:rgba(255,255,255,0.04);
-  --t1:#F4F4F5;
-  --t2:#A1A1AA;
-  --t3:#52525B;
-  --t4:#3f3f46;
-  --red:#F87171;--rbg:rgba(248,113,113,0.08);--rbd:rgba(248,113,113,0.18);
-  --blue:#60A5FA;--bbg:rgba(96,165,250,0.08);--bbd:rgba(96,165,250,0.18);
-  --green:#4ADE80;--gbg:rgba(74,222,128,0.08);--gbd:rgba(74,222,128,0.18);
-  --purple:#A78BFA;--pbg:rgba(167,139,250,0.08);--pbd:rgba(167,139,250,0.18);
-  --amber:#FBBF24;--abg:rgba(251,191,36,0.08);--abd:rgba(251,191,36,0.18);
-  --cyan:#22D3EE;--cbg:rgba(34,211,238,0.08);--cbd:rgba(34,211,238,0.18);
-  --orange:#FB923C;--obg:rgba(251,146,60,0.08);--obd:rgba(251,146,60,0.18);
-  --f:'Geist',sans-serif;--m:'Geist Mono',monospace;
-}
-body{background:var(--bg);color:var(--t1);font-family:var(--f);min-height:100vh}
-::-webkit-scrollbar{width:3px;height:3px}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
-
-/* ── HEADER ── */
-.hdr{padding:1.75rem 1.5rem 0;max-width:960px;margin:0 auto}
-.hdr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.5rem}
-.hdr-title{font-size:22px;font-weight:700;letter-spacing:-.5px}
-.hdr-sub{font-size:11px;color:var(--t3);font-family:var(--m);margin-bottom:1rem}
-.gbar{background:rgba(255,255,255,0.04);border-radius:20px;height:4px;overflow:hidden;margin-bottom:1.5rem;position:relative}
-.gbar-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--red),var(--blue),var(--green),var(--purple),var(--cyan));transition:width .6s ease;width:0%}
-.gbar-txt{position:absolute;right:0;top:-18px;font-size:10px;font-family:var(--m);color:var(--t3)}
-
-/* ── TOPNAV ── */
-.topnav{display:flex;gap:4px;flex-wrap:wrap;padding:0 1.5rem;max-width:960px;margin:0 auto .875rem;border-bottom:.5px solid var(--bdr);padding-bottom:.75rem}
-.tnb{padding:5px 12px;border-radius:20px;border:.5px solid transparent;font-size:11px;font-family:var(--m);cursor:pointer;background:transparent;color:var(--t3);transition:all .15s;white-space:nowrap}
-.tnb:hover{background:rgba(255,255,255,0.04);color:var(--t2)}
-.xr{background:var(--rbg);border-color:var(--rbd);color:var(--red)}
-.xb{background:var(--bbg);border-color:var(--bbd);color:var(--blue)}
-.xg{background:var(--gbg);border-color:var(--gbd);color:var(--green)}
-.xa{background:var(--abg);border-color:var(--abd);color:var(--amber)}
-.xp{background:var(--pbg);border-color:var(--pbd);color:var(--purple)}
-.xc{background:var(--cbg);border-color:var(--cbd);color:var(--cyan)}
-.xo{background:var(--obg);border-color:var(--obd);color:var(--orange)}
-
-/* ── PAGE ── */
-.pg{display:none;padding:0 1.5rem 3rem;max-width:960px;margin:0 auto}
-.pg.on{display:block}
-.ph{margin-bottom:1.25rem}
-.pbadge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:500;margin-bottom:.625rem;font-family:var(--m)}
-.ptitle{font-size:18px;font-weight:700;margin-bottom:2px;letter-spacing:-.3px}
-.pmeta{font-size:11px;font-family:var(--m);color:var(--t3)}
-
-/* ── SECTION LABEL ── */
-.lbl{font-size:9px;font-family:var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.5rem;padding-bottom:.375rem;border-bottom:.5px solid var(--bdr);margin-top:1.25rem}
-
-/* ── CARD ── */
-.card{background:var(--bg1);border:.5px solid var(--bdr);border-radius:10px;padding:.875rem 1rem;margin-bottom:.625rem}
-.ctitle{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:6px}
-.cbody{font-size:12px;color:var(--t2);line-height:1.75}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.625rem}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.625rem}
-
-/* ── CHECKLIST ── */
-.ci{display:flex;align-items:flex-start;gap:9px;padding:8px 10px;border-radius:7px;cursor:pointer;transition:background .1s;user-select:none}
-.ci:hover{background:rgba(255,255,255,0.02)}
-.ci.ckd .cl{color:var(--t3);text-decoration:line-through}
-.cbox{width:15px;height:15px;border-radius:3px;border:.5px solid rgba(255,255,255,0.14);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:8px;transition:all .15s}
-.dr .cbox.ck{background:var(--rbg);border-color:var(--red);color:var(--red)}
-.db .cbox.ck{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
-.dg .cbox.ck{background:var(--gbg);border-color:var(--green);color:var(--green)}
-.dp .cbox.ck{background:var(--pbg);border-color:var(--purple);color:var(--purple)}
-.dc .cbox.ck{background:var(--cbg);border-color:var(--cyan);color:var(--cyan)}
-.da .cbox.ck{background:var(--abg);border-color:var(--amber);color:var(--amber)}
-.do .cbox.ck{background:var(--obg);border-color:var(--orange);color:var(--orange)}
-.cl{font-size:12px;color:var(--t1);line-height:1.5}
-.cs{font-size:10px;font-family:var(--m);color:var(--t3);margin-top:2px}
-
-/* ── ACCORDION ── */
-.acc{background:var(--bg1);border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;margin-bottom:.5rem}
-.ah{padding:.75rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .1s}
-.ah:hover{background:rgba(255,255,255,0.02)}
-.at{font-size:12px;font-weight:500;color:var(--t1)}
-.ab{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s}
-.ab.on{max-height:6000px;padding:.125rem 1rem 1rem}
-.ad{font-size:12px;color:var(--t2);line-height:1.75;margin:.5rem 0}
-.chv{font-size:9px;color:var(--t3);transition:transform .3s}
-.chv.on{transform:rotate(180deg)}
-
-/* ── CODE ── */
-.cb{background:#050505;border:.5px solid rgba(255,255,255,0.05);border-radius:7px;margin:.625rem 0;overflow:hidden}
-.ct{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-bottom:.5px solid rgba(255,255,255,0.05)}
-.cl2{font-size:9px;font-family:var(--m);color:var(--t3)}
-.cc{font-size:9px;font-family:var(--m);color:var(--t3);cursor:pointer;padding:2px 7px;border-radius:3px;border:.5px solid var(--bdr);background:transparent;transition:all .15s}
-.cc:hover{color:var(--t2);border-color:rgba(255,255,255,0.12)}
-pre{padding:.75rem .875rem;font-family:var(--m);font-size:11.5px;line-height:1.85;color:#e2e8f0;overflow-x:auto;white-space:pre}
-.kw{color:#93c5fd}.fn{color:#86efac}.str{color:#fca5a5}.cm{color:#374151;font-style:italic}.num{color:#fbbf24}.cl_{color:#c4b5fd}
-
-/* ── FLOW DIAGRAM ── */
-.fbox{background:var(--bg2);border:.5px solid var(--bdr);border-radius:8px;padding:8px 12px;font-size:11px;text-align:center}
-.fcol{display:flex;flex-direction:column;gap:0;align-items:stretch}
-.farr{text-align:center;color:var(--t3);padding:3px 0;font-size:13px}
-
-/* ── KERNEL ARCH ── */
-.kw2{border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;font-size:11px;margin:.625rem 0}
-.kt{border-bottom:.5px solid var(--bdr2);padding:.625rem 1rem}
-.kt:last-child{border-bottom:none}
-.ktitle{font-size:9px;font-family:var(--m);color:var(--t3);margin-bottom:5px;letter-spacing:.06em;text-transform:uppercase}
-.ki{display:flex;flex-wrap:wrap;gap:5px}
-.kitem{border-radius:5px;padding:3px 9px;font-size:10px;font-weight:500;font-family:var(--m)}
-
-/* ── PROJ CARD ── */
-.proj{background:rgba(255,255,255,0.015);border:.5px solid var(--bdr2);border-radius:9px;padding:.75rem .875rem;margin-top:.625rem}
-.ptag{font-size:9px;font-family:var(--m);margin-bottom:4px}
-.pname{font-size:12px;font-weight:600;margin-bottom:3px}
-.pdesc{font-size:11px;color:var(--t2);line-height:1.65}
-
-/* ── STATUS ── */
-.stsgrid{display:flex;gap:8px;flex-wrap:wrap;margin:.625rem 0}
-.stsb{border-radius:7px;padding:7px 13px;font-size:11px;font-weight:500;cursor:pointer;transition:transform .15s;border:.5px solid transparent}
-.stsb:hover{transform:scale(1.04)}
-.stsinfo{background:rgba(255,255,255,0.02);border:.5px solid var(--bdr2);border-radius:7px;padding:.625rem .875rem;font-size:12px;color:var(--t2);min-height:44px;margin-top:.5rem;line-height:1.65}
-
-/* ── IPC ── */
-.ipcg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:.625rem 0}
-.ipcc{background:var(--bg1);border:.5px solid var(--bdr);border-radius:8px;padding:.75rem}
-.spdrow{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.spdbar{height:16px;border-radius:3px;font-size:9px;color:#fff;padding:0 7px;line-height:16px;font-family:var(--m)}
-
-/* ── DOCKER DIAG ── */
-.dockerd{border:.5px solid var(--bdr);border-radius:10px;overflow:hidden;margin:.75rem 0;background:var(--bg1)}
-.dlayer{padding:.75rem 1rem;border-bottom:.5px solid var(--bdr2)}
-.dlayer:last-child{border-bottom:none}
-.dcnts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-.dcnt{border-radius:7px;padding:.625rem;border:.5px solid}
-.dcitem{font-size:10px;border-radius:4px;padding:3px 7px;margin-bottom:3px;font-family:var(--m);text-align:center}
-
-/* ── NAVBOT ── */
-.navbot{display:flex;justify-content:space-between;margin-top:2rem;padding-top:1rem;border-top:.5px solid var(--bdr)}
-.nvbtn{padding:7px 15px;border-radius:7px;font-size:11px;font-family:var(--m);cursor:pointer;border:.5px solid var(--bdr);background:var(--bg1);color:var(--t2);transition:all .15s}
-.nvbtn:hover{border-color:rgba(255,255,255,0.14);color:var(--t1)}
-.nvbtn:disabled{opacity:.2;cursor:not-allowed}
-
-/* ── SUB-TABS ── */
-.stabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:.625rem;border-bottom:.5px solid var(--bdr)}
-.stab{display:none}.stab.on{display:block}
-
-/* ── OSTAB ── */
-.ostab{display:none}.ostab.on{display:block}
-
-/* ── SIM ── */
-.simbar{display:flex;gap:3px;height:26px;border-radius:6px;overflow:hidden;border:.5px solid var(--bdr)}
-.simleg{display:flex;gap:10px;margin-top:.5rem;font-size:10px;color:var(--t2);font-family:var(--m)}
-
-/* ── MEMBAR ── */
-.membar{display:flex;flex-direction:column;border:.5px solid var(--bdr);border-radius:8px;overflow:hidden;font-size:11px;text-align:center}
-.memseg{padding:9px 8px;font-weight:500;border-bottom:.5px solid var(--bdr2)}
-.memseg:last-child{border-bottom:none}
-
-/* ── TREE PAGE ── */
-.tree-wrap{padding:1.5rem 0}
-.tree-section{margin-bottom:2rem}
-.tree-section-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
-.tree-node{position:relative;margin-bottom:6px}
-.tree-row{display:flex;align-items:flex-start;gap:0}
-.tree-lines{display:flex;flex-direction:column;flex-shrink:0;width:24px}
-.tree-vert{width:1px;background:var(--bdr);margin-left:11px;flex:1}
-.tree-horiz{display:flex;align-items:center;height:24px;flex-shrink:0}
-.tree-horiz::before{content:'';display:block;width:11px;height:1px;background:var(--bdr)}
-.tree-horiz::after{content:'';display:block;width:12px;height:1px;background:var(--bdr)}
-.tree-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-right:4px;margin-top:9px}
-.tree-content{flex:1;padding:.5rem .75rem;border-radius:8px;border:.5px solid var(--bdr);background:var(--bg1);margin-bottom:4px}
-.tree-title{font-size:12px;font-weight:500;color:var(--t1)}
-.tree-desc{font-size:11px;color:var(--t3);margin-top:2px;font-family:var(--m)}
-.tree-children{margin-left:20px;padding-left:4px;border-left:.5px solid var(--bdr)}
-.tree-badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:4px;font-family:var(--m);font-weight:500;margin-left:6px;vertical-align:middle}
-
-/* ── ROADMAP TREE VISUAL ── */
-.rtree{width:100%;overflow-x:auto}
-.rtree-inner{min-width:660px;padding:1rem 0}
-.rnode{display:flex;flex-direction:column;align-items:center}
-.rnode-box{border-radius:10px;padding:.75rem 1.25rem;text-align:center;border:.5px solid;cursor:default;transition:transform .15s}
-.rnode-box:hover{transform:translateY(-2px)}
-.rnode-title{font-size:12px;font-weight:600}
-.rnode-meta{font-size:10px;margin-top:2px;opacity:.7;font-family:var(--m)}
-.rconn-v{width:1px;height:28px;margin:0 auto}
-.rconn-h{display:flex;align-items:flex-start;position:relative}
-.rconn-h::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:var(--bdr)}
-.rlevel{display:flex;justify-content:center;gap:16px;width:100%}
-.rlevel-item{display:flex;flex-direction:column;align-items:center;flex:1}
-.rconn-down{width:1px;height:24px;margin:0 auto}
-
-/* ── INFO BOX ── */
-.infobox{background:var(--bbg);border:.5px solid var(--bbd);border-radius:7px;padding:.625rem .875rem;font-size:11px;color:var(--blue);line-height:1.65;margin:.5rem 0}
-.warnbox{background:var(--abg);border:.5px solid var(--abd);border-radius:7px;padding:.625rem .875rem;font-size:11px;color:var(--amber);line-height:1.65;margin:.5rem 0}
-</style>
+<link rel="stylesheet" href="roadmap.css">
 </head>
 <body>
 
@@ -770,7 +572,8 @@ ln -s /usr/bin/python3 ~/python  <span class="cm"># symlink</span></pre></div></
 d = open("tmp.txt").read()</pre></div></div>
       <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">🔗</div><div class="ctitle">Pipe</div><div class="cbody" style="font-size:11px">Output → input. Di memori. Terminal pakai <code>|</code>.</div><div class="cb"><div class="ct"><span class="cl2">bash</span></div><pre style="font-size:10px">ls | grep ".py" | wc -l</pre></div></div>
       <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">🔌</div><div class="ctitle">Socket</div><div class="cbody" style="font-size:11px">TCP/UDP. Bisa antar mesin berbeda. Cara browser-server komunikasi.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">s.connect(("localhost",8000))
-s.send(b"GET / HTTP/1.1\r\n")</pre></div></div>
+s.send(b"GET / HTTP/1.1
+")</pre></div></div>
       <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">⚡</div><div class="ctitle">Shared Memory</div><div class="cbody" style="font-size:11px">OS map RAM sama ke 2 proses. Tercepat. Perlu mutex.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">shm = mmap.mmap(fd, 4096)
 shm.write(b"data")</pre></div></div>
       <div class="ipcc"><div style="font-size:18px;margin-bottom:5px">📬</div><div class="ctitle">Message Queue</div><div class="cbody" style="font-size:11px">Kirim ke antrian. Asinkron — tidak tunggu penerima.</div><div class="cb"><div class="ct"><span class="cl2">py</span></div><pre style="font-size:10px">q.put("msg"); msg=q.get()</pre></div></div>
@@ -1498,14 +1301,14 @@ server {
 
     <div class="acc"><div class="ah" onclick="ac(this)"><span class="at">Gunicorn + Systemd Service</span><span class="chv">▼</span></div>
     <div class="ab"><div class="cb"><div class="ct"><span class="cl2">bash + systemd</span><button class="cc" onclick="cp(this)">copy</button></div>
-<pre>gunicorn main:app \
-    --workers 4 \
-    --worker-class uvicorn.workers.UvicornWorker \
+<pre>gunicorn main:app 
+    --workers 4 
+    --worker-class uvicorn.workers.UvicornWorker 
     --bind 0.0.0.0:8000
 
 <span class="cm"># /etc/systemd/system/myapi.service</span>
 [Service]
-ExecStart=/venv/bin/gunicorn main:app \
+ExecStart=/venv/bin/gunicorn main:app 
     --workers 4 --worker-class uvicorn.workers.UvicornWorker
 Restart=always
 <span class="cm"># sudo systemctl enable myapi && sudo systemctl start myapi</span></pre></div></div></div>
@@ -1652,101 +1455,6 @@ aws s3 cp /backups/db_$(date +%Y%m%d).sql.gz s3://my-backups/</pre></div>
   <div class="navbot"><button class="nvbtn" onclick="go(6,document.querySelectorAll('.tnb')[6])">← Fase 5</button><button class="nvbtn" onclick="go(0,document.querySelectorAll('.tnb')[0])">Kembali ke Pohon 🗺</button></div>
 </div>
 
-<script>
-// ── NAVIGATION ──
-const TCOLS=[['xr'],['xr'],['xb'],['xg'],['xa'],['xp'],['xc'],['xo']];
-function go(i,btn){
-  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
-  document.getElementById('pg'+i).classList.add('on');
-  document.querySelectorAll('.topnav .tnb').forEach((b,j)=>{
-    ['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));
-    if(j===i) b.classList.add(TCOLS[i][0]);
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ── OS SUBTABS ──
-function os(i,btn){
-  document.querySelectorAll('.ostab').forEach((t,j)=>t.classList.toggle('on',j===i));
-  const cols=['xr','xb','xg','xa','xp','xc','xb','xr','xa'];
-  for(let j=0;j<9;j++){
-    const b=document.getElementById('ost'+j);
-    if(b){['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));if(j===i)b.classList.add(cols[j]);}
-  }
-}
-
-// ── BACKEND SUBTABS ──
-function be(i,btn){
-  const tabs=document.querySelectorAll('#pg7 .ostab');
-  tabs.forEach((t,j)=>t.classList.toggle('on',j===i));
-  const cols=['xo','xb','xg','xa','xr','xp','xc','xo'];
-  for(let j=0;j<8;j++){
-    const b=document.getElementById('bet'+j);
-    if(b){['xr','xb','xg','xa','xp','xc','xo'].forEach(c=>b.classList.remove(c));if(j===i)b.classList.add(cols[j]);}
-  }
-}
-
-// ── ACCORDION ──
-function ac(hdr){
-  const body=hdr.nextElementSibling;
-  const chv=hdr.querySelector('.chv');
-  body.classList.toggle('on',!body.classList.contains('on'));
-  chv.classList.toggle('on',!chv.classList.contains('on'));
-}
-
-// ── CHECKLIST ──
-function tk(el){
-  el.classList.toggle('ckd');
-  el.querySelector('.cbox').classList.toggle('ck');
-  updateBar();
-}
-function updateBar(){
-  const all=document.querySelectorAll('.ci').length;
-  const done=document.querySelectorAll('.ci.ckd').length;
-  const pct=all?Math.round(done/all*100):0;
-  document.getElementById('gbar').style.width=pct+'%';
-  document.getElementById('gpct').textContent=pct+'%';
-}
-
-// ── MULTITASKING SIM ──
-const SC=['#60A5FA','#4ADE80','#FBBF24','#A78BFA'];
-let SI=null;
-function startSim(){
-  const tl=document.getElementById('simtl');
-  tl.innerHTML=''; let t=0;
-  if(SI)clearInterval(SI);
-  SI=setInterval(()=>{
-    if(t>=80){clearInterval(SI);return;}
-    const s=document.createElement('div');
-    s.style.cssText=`flex:1;background:${SC[Math.floor(Math.random()*4)]};min-width:3px`;
-    tl.appendChild(s);
-    if(tl.children.length>80)tl.removeChild(tl.children[0]);
-    t++;
-  },100);
-}
-
-// ── PROCESS STATUS ──
-const SI2={
-  new:'<strong>New</strong>: OS baru buat proses — alokasi PID, siapkan PCB, muat program ke RAM.',
-  ready:'<strong>Ready</strong>: Proses siap, menunggu giliran CPU di ready queue.',
-  running:'<strong>Running</strong>: Proses pakai CPU. Hanya 1 per core bersamaan.',
-  blocked:'<strong>Blocked</strong>: Nunggu I/O (disk/network/keyboard). CPU dibebaskan.',
-  term:'<strong>Terminated</strong>: Proses selesai/di-kill. OS simpan exit code lalu hapus.'
-};
-function showSts(s){document.getElementById('stsinfo').innerHTML=SI2[s];}
-
-// ── COPY ──
-function cp(btn){
-  const pre=btn.closest('.cb').querySelector('pre');
-  navigator.clipboard.writeText(pre.innerText).then(()=>{
-    btn.textContent='copied!';
-    setTimeout(()=>btn.textContent='copy',1800);
-  });
-}
-
-// init
-document.getElementById('ost0').classList.add('xr');
-document.getElementById('bet0').classList.add('xo');
-</script>
+<script src="roadmap.js"></script>
 </body>
 </html>
